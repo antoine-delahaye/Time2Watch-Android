@@ -1,43 +1,64 @@
 package com.example.time2watch.api;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Movie {
-    private int id;
-    private String title;
-    private float voteAverage;
-    private ArrayList<String> genres;
-    private int budget;
-    private String overview;
-    private String originalTitle;
-    private Date releaseDate;
-    private int runtime;
-    private String tagline;
-    private float popularity;
+    public boolean adult;
+    public String backdrop_path;
+    public int[] genre_ids;
+    public int id;
+    public String original_language;
+    public String original_title;
+    public String overview;
+    public String poster_path;
+    public String release_date;
+    public String title;
+    public boolean video;
+    public double vote_average;
+    public int vote_count;
+    public double popularity;
+    public String media_type;
 
-    // Detailled movie
-    public Movie(int id, String title, float voteAverage, ArrayList<String> genres, int budget, String overview, String originalTitle, Date releaseDate, int runtime, String tagline, float popularity) {
+    public Movie(boolean adult, String backdrop_path, int[] genre_ids, int id, String original_language, String original_title, String overview, String poster_path, String release_date, String title, boolean video, double vote_average, int vote_count, double popularity, String media_type) {
+        this.adult = adult;
+        this.backdrop_path = backdrop_path;
+        this.genre_ids = genre_ids;
         this.id = id;
-        this.title = title;
-        this.voteAverage = voteAverage;
-        this.genres = genres;
-        this.budget = budget;
+        this.original_language = original_language;
+        this.original_title = original_title;
         this.overview = overview;
-        this.originalTitle = originalTitle;
-        this.releaseDate = releaseDate;
-        this.runtime = runtime;
-        this.tagline = tagline;
+        this.poster_path = poster_path;
+        this.release_date = release_date;
+        this.title = title;
+        this.video = video;
+        this.vote_average = vote_average;
+        this.vote_count = vote_count;
         this.popularity = popularity;
+        this.media_type = media_type;
     }
 
-    // Trending movie
-    public Movie(int id, String title, float voteAverage, float popularity, Date releaseDate, String overview) {
-        this.id = id;
-        this.title = title;
-        this.popularity = popularity;
-        this.releaseDate = releaseDate;
-        this.overview = overview;
+    public boolean isAdult() {
+        return adult;
+    }
+
+    public void setAdult(boolean adult) {
+        this.adult = adult;
+    }
+
+    public String getBackdrop_path() {
+        return backdrop_path;
+    }
+
+    public void setBackdrop_path(String backdrop_path) {
+        this.backdrop_path = backdrop_path;
+    }
+
+    public int[] getGenre_ids() {
+        return genre_ids;
+    }
+
+    public void setGenre_ids(int[] genre_ids) {
+        this.genre_ids = genre_ids;
     }
 
     public int getId() {
@@ -48,36 +69,20 @@ public class Movie {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getOriginal_language() {
+        return original_language;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setOriginal_language(String original_language) {
+        this.original_language = original_language;
     }
 
-    public float getVoteAverage() {
-        return voteAverage;
+    public String getOriginal_title() {
+        return original_title;
     }
 
-    public void setVoteAverage(float voteAverage) {
-        this.voteAverage = voteAverage;
-    }
-
-    public ArrayList<String> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(ArrayList<String> genres) {
-        this.genres = genres;
-    }
-
-    public int getBudget() {
-        return budget;
-    }
-
-    public void setBudget(int budget) {
-        this.budget = budget;
+    public void setOriginal_title(String original_title) {
+        this.original_title = original_title;
     }
 
     public String getOverview() {
@@ -88,43 +93,88 @@ public class Movie {
         this.overview = overview;
     }
 
-    public String getOriginalTitle() {
-        return originalTitle;
+    public String getPoster_path() {
+        return poster_path;
     }
 
-    public void setOriginalTitle(String originalTitle) {
-        this.originalTitle = originalTitle;
+    public void setPoster_path(String poster_path) {
+        this.poster_path = poster_path;
     }
 
-    public Date getReleaseDate() {
-        return releaseDate;
+    public String getRelease_date() {
+        return release_date;
     }
 
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setRelease_date(String release_date) {
+        this.release_date = release_date;
     }
 
-    public int getRuntime() {
-        return runtime;
+    public String getTitle() {
+        return title;
     }
 
-    public void setRuntime(int runtime) {
-        this.runtime = runtime;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getTagline() {
-        return tagline;
+    public boolean isVideo() {
+        return video;
     }
 
-    public void setTagline(String tagline) {
-        this.tagline = tagline;
+    public void setVideo(boolean video) {
+        this.video = video;
     }
 
-    public float getPopularity() {
+    public double getVote_average() {
+        return vote_average;
+    }
+
+    public void setVote_average(double vote_average) {
+        this.vote_average = vote_average;
+    }
+
+    public int getVote_count() {
+        return vote_count;
+    }
+
+    public void setVote_count(int vote_count) {
+        this.vote_count = vote_count;
+    }
+
+    public double getPopularity() {
         return popularity;
     }
 
-    public void setPopularity(float popularity) {
+    public void setPopularity(double popularity) {
         this.popularity = popularity;
+    }
+
+    public String getMedia_type() {
+        return media_type;
+    }
+
+    public void setMedia_type(String media_type) {
+        this.media_type = media_type;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "adult=" + adult +
+                ", backdrop_path='" + backdrop_path + '\'' +
+                ", genre_ids=" + genre_ids +
+                ", id=" + id +
+                ", original_language='" + original_language + '\'' +
+                ", original_title='" + original_title + '\'' +
+                ", overview='" + overview + '\'' +
+                ", poster_path='" + poster_path + '\'' +
+                ", release_date='" + release_date + '\'' +
+                ", title='" + title + '\'' +
+                ", video=" + video +
+                ", vote_average=" + vote_average +
+                ", vote_count=" + vote_count +
+                ", popularity=" + popularity +
+                ", media_type='" + media_type + '\'' +
+                '}';
     }
 }
