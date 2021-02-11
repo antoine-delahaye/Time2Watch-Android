@@ -16,6 +16,7 @@ public class Movie {
     private String tagline;
     private float popularity;
 
+    // Detailled movie
     public Movie(int id, String title, float voteAverage, ArrayList<String> genres, int budget, String overview, String originalTitle, Date releaseDate, int runtime, String tagline, float popularity) {
         this.id = id;
         this.title = title;
@@ -28,6 +29,15 @@ public class Movie {
         this.runtime = runtime;
         this.tagline = tagline;
         this.popularity = popularity;
+    }
+
+    // Trending movie
+    public Movie(int id, String title, float voteAverage, float popularity, Date releaseDate, String overview) {
+        this.id = id;
+        this.title = title;
+        this.popularity = popularity;
+        this.releaseDate = releaseDate;
+        this.overview = overview;
     }
 
     public int getId() {
