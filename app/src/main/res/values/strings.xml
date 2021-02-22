@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name" translatable="false">Time2Watch</string>
+    <string name="image_description">Poster</string>
 </resources>

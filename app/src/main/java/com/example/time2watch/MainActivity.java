@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,24 +16,29 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String loadJSONFromAsset() {
-        String json = null;
+    private final ArrayList<HashMap<String, String>> movies = new ArrayList<>();
+
+    private RecyclerView recyclerView;
+
+    private RecyclerView.Adapter adapter;
+
+    private RecyclerView.LayoutManager layoutManager;
+
+    public String loadJsonFromAsset() {
+        String data = null;
         try {
-            InputStream is = this.getAssets().open("tmdb_sample.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, StandardCharsets.UTF_8);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
+            InputStream file = this.getAssets().open("tmdb_sample.json");
+            byte[] buffer = new byte[file.available()];
+            file.read(buffer);
+            file.close();
+            data = new String(buffer, StandardCharsets.UTF_8);
+        } catch (IOException exception) {
+            Log.d("loadJsonFromAsset", String.valueOf(exception));
         }
-        return json;
+        return data;
     }
 
     @Override
@@ -39,23 +46,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
-            JSONObject obj = new JSONObject(loadJSONFromAsset());
-            JSONArray m_jArry = obj.getJSONArray("results");
-            ArrayList<HashMap<String, String>> formList = new ArrayList<>();
-            HashMap<String, String> m_li;
-            for (int i = 0; i < m_jArry.length(); i++) {
-                JSONObject jo_inside = m_jArry.getJSONObject(i);
-                Log.d("Details-->", jo_inside.getString("title"));
-                String title = jo_inside.getString("title");
-                String poster_path = jo_inside.getString("poster_path");
-                m_li = new HashMap<>();
-                m_li.put("title", title);
-                m_li.put("poster_path", poster_path);
-                formList.add(m_li);
+            JSONArray jsonArray = new JSONObject(loadJsonFromAsset()).getJSONArray("results");
+            HashMap<String, String> movie;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                Log.d("onCreate", jsonObject.getString("title"));
+                String title = jsonObject.getString("title");
+                String posterPath = jsonObject.getString("poster_path");
+                movie = new HashMap<>();
+                movie.put("title", title);
+                movie.put("poster_path", posterPath);
+                this.movies.add(movie);
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException exception) {
+            Log.d("onCreate", String.valueOf(exception));
         }
+        this.recyclerView = findViewById(R.id.recyclerView);
+        this.layoutManager = new LinearLayoutManager(this);
+        this.recyclerView.setLayoutManager(layoutManager);
+        this.adapter = new MovieAdapter(this.movies);
+        this.recyclerView.setAdapter(this.adapter);
     }
 
 }
