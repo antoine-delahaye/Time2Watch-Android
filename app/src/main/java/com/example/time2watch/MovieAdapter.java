@@ -1,7 +1,5 @@
 package com.example.time2watch;
 
-import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +13,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
@@ -38,6 +35,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         Picasso.get().setLoggingEnabled(true);
         Picasso.get().load("https://www.themoviedb.org/t/p/w600_and_h900_bestv2" + this.movies.get(position).get("poster_path")).into(holder.poster);
         holder.title.setText(this.movies.get(position).get("title"));
+        holder.vote_average.setText(this.movies.get(position).get("vote_average"));
+        holder.overview.setText(this.movies.get(position).get("overview"));
+        holder.release_date.setText(this.movies.get(position).get("release_date"));
     }
 
     @Override
@@ -53,11 +53,20 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         protected TextView title;
 
+        protected TextView vote_average;
+
+        protected TextView overview;
+
+        protected TextView release_date;
+
         protected ImageView poster;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
             this.title = itemView.findViewById(R.id.title);
+            this.vote_average = itemView.findViewById(R.id.vote_average);
+            this.overview = itemView.findViewById(R.id.overview);
+            this.release_date = itemView.findViewById(R.id.release_date);
             this.poster = itemView.findViewById(R.id.poster);
         }
 

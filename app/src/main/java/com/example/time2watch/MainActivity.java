@@ -21,16 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
     private final ArrayList<HashMap<String, String>> movies = new ArrayList<>();
 
-    private RecyclerView recyclerView;
-
-    private RecyclerView.Adapter adapter;
-
-    private RecyclerView.LayoutManager layoutManager;
-
     public String loadJsonFromAsset() {
         String data = null;
         try {
-            InputStream file = this.getAssets().open("tmdb_sample.json");
+            InputStream file = this.getAssets().open("tmdb_movies_sample.json");
             byte[] buffer = new byte[file.available()];
             file.read(buffer);
             file.close();
@@ -46,26 +40,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
-            JSONArray jsonArray = new JSONObject(loadJsonFromAsset()).getJSONArray("results");
+            JSONArray jsonArray = new JSONObject(loadJsonFromAsset()).getJSONArray("data");
             HashMap<String, String> movie;
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                Log.d("onCreate", jsonObject.getString("title"));
                 String title = jsonObject.getString("title");
+                String release_date = jsonObject.getString("release_date");
+                String overview = jsonObject.getString("overview");
+                String vote_average = jsonObject.getString("vote_average");
                 String posterPath = jsonObject.getString("poster_path");
                 movie = new HashMap<>();
                 movie.put("title", title);
+                movie.put("release_date", release_date);
+                movie.put("overview", overview);
+                movie.put("vote_average", vote_average);
                 movie.put("poster_path", posterPath);
                 this.movies.add(movie);
             }
         } catch (JSONException exception) {
             Log.d("onCreate", String.valueOf(exception));
         }
-        this.recyclerView = findViewById(R.id.recyclerView);
-        this.layoutManager = new LinearLayoutManager(this);
-        this.recyclerView.setLayoutManager(layoutManager);
-        this.adapter = new MovieAdapter(this.movies);
-        this.recyclerView.setAdapter(this.adapter);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        MovieAdapter adapter = new MovieAdapter(this.movies);
+        recyclerView.setAdapter(adapter);
     }
 
 }
