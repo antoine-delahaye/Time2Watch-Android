@@ -10,7 +10,7 @@ import com.google.gson.JsonObject;
 
 import java.util.Arrays;
 
-import static com.example.time2watch.MainActivity.getJSON;
+import static com.example.time2watch.utils.Utils.getJSON;
 
 
 public class GetTrendingMoviesWeek extends AsyncTask<Void, Void, Movie[]> {
@@ -39,6 +39,6 @@ public class GetTrendingMoviesWeek extends AsyncTask<Void, Void, Movie[]> {
     protected void onPostExecute(Movie[] movies) {
         super.onPostExecute(movies);
         Log.d("getTrendingMoviesWeek", Arrays.toString(movies));
-        Log.d("getTrendingMoviesWeek", String.valueOf(movies.length) + " Movies");
+        Log.d("getTrendingMoviesWeek", movies.length + " Movies");
     }
 }
