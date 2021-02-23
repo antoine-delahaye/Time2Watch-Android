@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Movie[] movies) {
             super.onPostExecute(movies);
-            Log.d("getTrendingMoviesWeek", movies[0].getBackdrop_path());
+            Log.d("getTrendingMoviesWeek", Arrays.toString(movies));
+            Log.d("getTrendingMoviesWeek", String.valueOf(movies.length) + " Movies");
         }
     }
 }

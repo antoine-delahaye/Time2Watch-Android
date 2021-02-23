@@ -1,5 +1,7 @@
 package com.example.time2watch.classes;
 
+import java.util.Arrays;
+
 public class Movie {
     public boolean adult;
     public String backdrop_path;
@@ -160,7 +162,7 @@ public class Movie {
         return "Movie{" +
                 "adult=" + adult +
                 ", backdrop_path='" + backdrop_path + '\'' +
-                ", genre_ids=" + genre_ids +
+                ", genre_ids=" + Arrays.toString(genre_ids) +
                 ", id=" + id +
                 ", original_language='" + original_language + '\'' +
                 ", original_title='" + original_title + '\'' +
