@@ -1,27 +1,18 @@
 package com.example.time2watch;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuView;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.method.MovementMethod;
-import android.util.JsonReader;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.example.time2watch.api.Movie;
+import com.example.time2watch.classes.Movie;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.net.URL;
-import java.nio.channels.GatheringByteChannel;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -56,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class getTrendingMoviesWeek extends AsyncTask<Void, Void, Movie[]> {
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -67,12 +57,18 @@ public class MainActivity extends AppCompatActivity {
             JsonObject jsonObject = getJSON("https://api.themoviedb.org/3/trending/movie/week?api_key=" + apiKey + "&language=fr");
             Gson gson = new Gson();
             JsonElement jsonElement = jsonObject.get("results");
-            return gson.fromJson(jsonElement, Movie[].class);
+            Movie[] moviesArray = gson.fromJson(jsonElement, Movie[].class);
+            for (Movie movie : moviesArray) {
+                movie.setBackdrop_path("https://www.themoviedb.org/t/p/original" + movie.getBackdrop_path());
+                movie.setPoster_path("https://www.themoviedb.org/t/p/original" + movie.getPoster_path());
+            }
+            return moviesArray;
         }
 
         @Override
         protected void onPostExecute(Movie[] movies) {
             super.onPostExecute(movies);
+            Log.d("getTrendingMoviesWeek", movies[0].getBackdrop_path());
         }
     }
 }

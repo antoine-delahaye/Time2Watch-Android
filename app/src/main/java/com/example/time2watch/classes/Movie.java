@@ -1,6 +1,4 @@
-package com.example.time2watch.api;
-
-import java.util.ArrayList;
+package com.example.time2watch.classes;
 
 public class Movie {
     public boolean adult;
@@ -21,13 +19,13 @@ public class Movie {
 
     public Movie(boolean adult, String backdrop_path, int[] genre_ids, int id, String original_language, String original_title, String overview, String poster_path, String release_date, String title, boolean video, double vote_average, int vote_count, double popularity, String media_type) {
         this.adult = adult;
-        this.backdrop_path = backdrop_path;
+        this.backdrop_path = "https://www.themoviedb.org/t/p/original" + backdrop_path;
         this.genre_ids = genre_ids;
         this.id = id;
         this.original_language = original_language;
         this.original_title = original_title;
         this.overview = overview;
-        this.poster_path = poster_path;
+        this.poster_path = "https://www.themoviedb.org/t/p/original" + poster_path;
         this.release_date = release_date;
         this.title = title;
         this.video = video;
