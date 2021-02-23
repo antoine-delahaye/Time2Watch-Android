@@ -12,9 +12,9 @@ import java.util.Arrays;
 
 import static com.example.time2watch.utils.Utils.getJSON;
 
-public class GetTrendingMoviesDay extends AsyncTask<Void, Void, Movie[]> {
-
-    public String apiKey = "ccbc42c4b357545c785bb0d1caba6301";
+public class GetTrendingMovies extends AsyncTask<String, Void, Movie[]> {
+    public final static String WEEK = "week";
+    public final static String DAY  = "day";
 
     @Override
     protected void onPreExecute() {
@@ -22,11 +22,14 @@ public class GetTrendingMoviesDay extends AsyncTask<Void, Void, Movie[]> {
     }
 
     @Override
-    protected Movie[] doInBackground(Void... voids) {
-        JsonObject jsonObject = getJSON("https://api.themoviedb.org/3/trending/movie/day?api_key=" + apiKey + "&language=fr");
+    protected Movie[] doInBackground(String... strings) {
+        String apiKey = "ccbc42c4b357545c785bb0d1caba6301"; // TODO Transfer this into string global to project
+
+        JsonObject jsonObject = getJSON("https://api.themoviedb.org/3/trending/movie/" + strings[0] + "?api_key=" + apiKey + "&language=fr");
         Gson gson = new Gson();
         JsonElement jsonElement = jsonObject.get("results");
         Movie[] moviesArray = gson.fromJson(jsonElement, Movie[].class);
+
         for (Movie movie : moviesArray) {
             movie.setBackdrop_path("https://www.themoviedb.org/t/p/original" + movie.getBackdrop_path());
             movie.setPoster_path("https://www.themoviedb.org/t/p/original" + movie.getPoster_path());
@@ -37,7 +40,7 @@ public class GetTrendingMoviesDay extends AsyncTask<Void, Void, Movie[]> {
     @Override
     protected void onPostExecute(Movie[] movies) {
         super.onPostExecute(movies);
-        Log.d("getTrendingMoviesDay", Arrays.toString(movies));
-        Log.d("getTrendingMoviesDay", movies.length + " Movies");
+        Log.d("getTrendingMovies", Arrays.toString(movies));
+        Log.d("getTrendingMovies", movies.length + " Movies");
     }
 }
