@@ -8,11 +8,11 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class Utils {
-    public static JsonObject getJSON(String urlPage) {
+    public static JsonObject getJSON(String url) {
         JsonObject jsonObject = null;
         try {
-            URL url = new URL(urlPage);
-            Scanner sc = new Scanner(url.openStream());
+            URL u = new URL(url);
+            Scanner sc = new Scanner(u.openStream());
             StringBuilder sb = new StringBuilder();
             while (sc.hasNext()) {
                 sb.append(sc.next());

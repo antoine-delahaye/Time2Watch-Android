@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 import static com.example.time2watch.utils.Utils.getJSON;
 
-public class GetTrendingMovies extends AsyncTask<String, Void, Movie[]> {
+public class TrendingMovies extends AsyncTask<String, Void, Movie[]> {
     public final static String WEEK = "week";
     public final static String DAY  = "day";
 
@@ -40,7 +40,7 @@ public class GetTrendingMovies extends AsyncTask<String, Void, Movie[]> {
     @Override
     protected void onPostExecute(Movie[] movies) {
         super.onPostExecute(movies);
-        Log.d("getTrendingMovies", Arrays.toString(movies));
-        Log.d("getTrendingMovies", movies.length + " Movies");
+        Log.d("TrendingMovies", Arrays.toString(movies));
+        Log.d("TrendingMovies", movies.length + " Movies");
     }
 }
