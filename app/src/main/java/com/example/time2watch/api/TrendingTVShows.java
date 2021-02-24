@@ -27,12 +27,7 @@ public class TrendingTVShows extends AsyncTask<String, Void, TVShow[]> {
         String apiKey = "ccbc42c4b357545c785bb0d1caba6301"; // TODO Transfer this into string global to project
 
         JsonObject jsonObject = null;
-        try {
-            jsonObject = getJSON("https://api.themoviedb.org/3/trending/tv/" + strings[0] + "?api_key=" + apiKey + "&language=fr");
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.d("TrendingTVShows", "Failed to fetch JSON file from tmdb db");
-        }
+        jsonObject = getJSON("https://api.themoviedb.org/3/trending/tv/" + strings[0] + "?api_key=" + apiKey + "&language=fr");
         Gson gson = new Gson();
         JsonElement jsonElement = jsonObject.get("results");
         TVShow[] tvShowArray = gson.fromJson(jsonElement, TVShow[].class);
