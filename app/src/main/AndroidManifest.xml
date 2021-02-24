@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Time2Watch"
         tools:ignore="AllowBackup">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MoviesActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

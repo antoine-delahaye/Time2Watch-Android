@@ -1,5 +1,6 @@
 package com.example.time2watch;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,17 +10,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.time2watch.classes.Movie;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    private final ArrayList<HashMap<String, String>> movies;
+    private final Movie[] movies;
 
-
-    public MovieAdapter(ArrayList<HashMap<String, String>> movies) {
+    public MovieAdapter(Movie[] movies) {
         this.movies = movies;
     }
 
@@ -32,42 +30,38 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(MovieAdapter.MovieViewHolder holder, int position) {
-        Picasso.get().setLoggingEnabled(true);
-        Picasso.get().load("https://www.themoviedb.org/t/p/w600_and_h900_bestv2" + this.movies.get(position).get("poster_path")).into(holder.poster);
-        holder.title.setText(this.movies.get(position).get("title"));
-        holder.vote_average.setText(this.movies.get(position).get("vote_average"));
-        holder.overview.setText(this.movies.get(position).get("overview"));
-        holder.release_date.setText(this.movies.get(position).get("release_date"));
+        Movie movie = this.movies[position];
+        Picasso.get().load(movie.poster_path).into(holder.poster);
+        holder.title.setText(movie.title);
+        holder.vote_average.setText(String.valueOf(movie.vote_average));
+        holder.overview.setText(movie.overview);
+        holder.release_date.setText(movie.release_date);
     }
 
     @Override
     public int getItemCount() {
-        if (this.movies != null) {
-            return movies.size();
-        } else {
-            return 0;
-        }
+        return this.movies != null ? this.movies.length : 0;
     }
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
 
+        protected ImageView poster;
+
         protected TextView title;
-
-        protected TextView vote_average;
-
-        protected TextView overview;
 
         protected TextView release_date;
 
-        protected ImageView poster;
+        protected TextView overview;
+
+        protected TextView vote_average;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-            this.title = itemView.findViewById(R.id.title);
-            this.vote_average = itemView.findViewById(R.id.vote_average);
-            this.overview = itemView.findViewById(R.id.overview);
-            this.release_date = itemView.findViewById(R.id.release_date);
             this.poster = itemView.findViewById(R.id.poster);
+            this.title = itemView.findViewById(R.id.title);
+            this.release_date = itemView.findViewById(R.id.release_date);
+            this.overview = itemView.findViewById(R.id.overview);
+            this.vote_average = itemView.findViewById(R.id.vote_average);
         }
 
     }
