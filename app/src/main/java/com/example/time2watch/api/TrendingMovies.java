@@ -25,9 +25,13 @@ public class TrendingMovies extends AsyncTask<String, Void, Movie[]> {
     @Override
     protected Movie[] doInBackground(String... strings) {
         String apiKey = "ccbc42c4b357545c785bb0d1caba6301"; // TODO Transfer this into string global to project
-
         JsonObject jsonObject = null;
-        jsonObject = getJSON("https://api.themoviedb.org/3/trending/movie/" + strings[0] + "?api_key=" + apiKey + "&language=fr");
+        try {
+            jsonObject = getJSON("https://api.themoviedb.org/3/trending/movie/" + strings[0] + "?api_key=" + apiKey + "&language=fr");
+        } catch (IndexOutOfBoundsException e) {
+            Log.d("TrendingMovies", "Please choose between WEEK or DAY in execute()");
+            return new Movie[]{};
+        }
         Gson gson = new Gson();
         JsonElement jsonElement = jsonObject.get("results");
         Movie[] moviesArray = gson.fromJson(jsonElement, Movie[].class);

@@ -3,6 +3,7 @@ package com.example.time2watch.api;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.time2watch.classes.Movie;
 import com.example.time2watch.classes.TVShow;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -15,7 +16,7 @@ import static com.example.time2watch.utils.Utils.getJSON;
 
 public class TrendingTVShows extends AsyncTask<String, Void, TVShow[]> {
     public final static String WEEK = "week";
-    public final static String DAY  = "day";
+    public final static String DAY = "day";
 
     @Override
     protected void onPreExecute() {
@@ -25,9 +26,13 @@ public class TrendingTVShows extends AsyncTask<String, Void, TVShow[]> {
     @Override
     protected TVShow[] doInBackground(String... strings) {
         String apiKey = "ccbc42c4b357545c785bb0d1caba6301"; // TODO Transfer this into string global to project
-
         JsonObject jsonObject = null;
-        jsonObject = getJSON("https://api.themoviedb.org/3/trending/tv/" + strings[0] + "?api_key=" + apiKey + "&language=fr");
+        try {
+            jsonObject = getJSON("https://api.themoviedb.org/3/trending/tv/" + strings[0] + "?api_key=" + apiKey + "&language=fr");
+        } catch (IndexOutOfBoundsException e) {
+            Log.d("TrendingMovies", "Please choose between WEEK or DAY in execute()");
+            return new TVShow[]{};
+        }
         Gson gson = new Gson();
         JsonElement jsonElement = jsonObject.get("results");
         TVShow[] tvShowArray = gson.fromJson(jsonElement, TVShow[].class);
