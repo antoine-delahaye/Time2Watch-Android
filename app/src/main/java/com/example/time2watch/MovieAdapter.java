@@ -1,6 +1,7 @@
 package com.example.time2watch;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     private final Movie[] movies;
 
+    private Context context;
+
     public MovieAdapter(Movie[] movies) {
         this.movies = movies;
     }
@@ -24,8 +27,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     @NonNull
     @Override
     public MovieAdapter.MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_row, parent, false);
-        return new MovieViewHolder(v);
+        this.context = parent.getContext();
+        View view = LayoutInflater.from(this.context).inflate(R.layout.movie_row, parent, false);
+        return new MovieViewHolder(view);
     }
 
     @Override
@@ -33,9 +37,17 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         Movie movie = this.movies[position];
         Picasso.get().load(movie.poster_path).into(holder.poster);
         holder.title.setText(movie.title);
-        holder.vote_average.setText(String.valueOf(movie.vote_average));
-        holder.overview.setText(movie.overview);
-        holder.release_date.setText(movie.release_date);
+        holder.release_date.setText(this.context.getString(R.string.release_date, movie.release_date));
+        holder.vote_average.setText(this.context.getString(R.string.vote_average, String.valueOf(movie.vote_average)));
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, MovieDetailActivity.class);
+            intent.putExtra("poster_path", movie.poster_path);
+            intent.putExtra("title", movie.title);
+            intent.putExtra("release_date", movie.release_date);
+            intent.putExtra("vote_average", movie.vote_average);
+            intent.putExtra("overview", movie.overview);
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -51,17 +63,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         protected TextView release_date;
 
-        protected TextView overview;
-
         protected TextView vote_average;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-            this.poster = itemView.findViewById(R.id.poster);
-            this.title = itemView.findViewById(R.id.title);
-            this.release_date = itemView.findViewById(R.id.release_date);
-            this.overview = itemView.findViewById(R.id.overview);
-            this.vote_average = itemView.findViewById(R.id.vote_average);
+            this.poster = itemView.findViewById(R.id.RowPoster);
+            this.title = itemView.findViewById(R.id.RowTitle);
+            this.release_date = itemView.findViewById(R.id.RowReleaseDate);
+            this.vote_average = itemView.findViewById(R.id.RowVoteAverage);
         }
 
     }

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Time2Watch</string>
-    <string name="image_description">Poster</string>
+    <string name="poster_description">Poster</string>
+    <string name="release_date">Release date : %1$s</string>
+    <string name="vote_average">Vote average : %1$s/10</string>
+    <string name="overview">Overview : %1$s</string>
 </resources>
