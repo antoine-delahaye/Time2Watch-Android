@@ -3,20 +3,20 @@ package com.example.time2watch.classes;
 import java.util.Arrays;
 
 public class TrendingTVShow {
-    public String backdrop_path;
-    public String[] genre_ids;
-    public String original_language;
-    public String vote_count;
-    public String first_air_date;
-    public String[] origin_country;
-    public String poster_path;
-    public String vote_average;
-    public String id;
-    public String overview;
-    public String name;
-    public String original_name;
-    public String popularity;
-    public String media_type;
+    private String backdrop_path;
+    private String[] genre_ids;
+    private String original_language;
+    private String vote_count;
+    private String first_air_date;
+    private String[] origin_country;
+    private String poster_path;
+    private String vote_average;
+    private String id;
+    private String overview;
+    private String name;
+    private String original_name;
+    private String popularity;
+    private String media_type;
 
     public TrendingTVShow(String backdrop_path, String[] genre_ids, String original_language, String vote_count, String first_air_date, String[] origin_country, String poster_path, String vote_average, String id, String overview, String name, String original_name, String popularity, String media_type) {
         this.backdrop_path = backdrop_path;

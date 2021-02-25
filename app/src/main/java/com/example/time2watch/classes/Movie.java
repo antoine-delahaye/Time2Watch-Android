@@ -8,30 +8,30 @@ import com.example.time2watch.classes.subclasses.SpokenLanguage;
 import java.util.Arrays;
 
 public class Movie {
-    public boolean adult;
-    public String backdrop_path;
-    public String budget;
-    public Genre[] genres;
-    public String homepage;
-    public String id;
-    public String imdb_id;
-    public String original_language;
-    public String original_title;
-    public String overview;
-    public String popularity;
-    public String poster_path;
-    public ProductionCompany[] production_companies;
-    public ProductionCountry[] production_countries;
-    public String release_date;
-    public String revenue;
-    public String runtime;
-    public SpokenLanguage[] spoken_languages;
-    public String status;
-    public String tagline;
-    public String title;
-    public boolean video;
-    public String vote_average;
-    public String vote_count;
+    private boolean adult;
+    private String backdrop_path;
+    private String budget;
+    private Genre[] genres;
+    private String homepage;
+    private String id;
+    private String imdb_id;
+    private String original_language;
+    private String original_title;
+    private String overview;
+    private String popularity;
+    private String poster_path;
+    private ProductionCompany[] production_companies;
+    private ProductionCountry[] production_countries;
+    private String release_date;
+    private String revenue;
+    private String runtime;
+    private SpokenLanguage[] spoken_languages;
+    private String status;
+    private String tagline;
+    private String title;
+    private boolean video;
+    private String vote_average;
+    private String vote_count;
 
     public Movie() { }
 

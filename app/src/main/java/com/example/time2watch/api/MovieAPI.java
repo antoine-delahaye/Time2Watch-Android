@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.time2watch.classes.Movie;
+import com.example.time2watch.classes.TrendingMovie;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -27,7 +28,10 @@ public class MovieAPI extends AsyncTask<Integer, Void, Movie> {
             return new Movie();
         }
         Gson gson = new Gson();
-        return gson.fromJson(jsonObject, Movie.class);
+        Movie movie = gson.fromJson(jsonObject, Movie.class);
+        movie.setBackdrop_path("https://www.themoviedb.org/t/p/original" + movie.getBackdrop_path());
+        movie.setPoster_path("https://www.themoviedb.org/t/p/original" + movie.getPoster_path());
+        return movie;
     }
 
     @Override

@@ -1,16 +1,24 @@
 package com.example.time2watch.classes.subclasses;
 
-public class ProductionCompany{
+public class Network {
+    private String name;
     private String id;
     private String logo_path;
-    private String name;
     private String origin_country;
 
-    public ProductionCompany(String id, String logo_path, String name, String origin_country) {
+    public Network(String name, String id, String logo_path, String origin_country) {
+        this.name = name;
         this.id = id;
         this.logo_path = logo_path;
-        this.name = name;
         this.origin_country = origin_country;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getId() {
@@ -29,14 +37,6 @@ public class ProductionCompany{
         this.logo_path = logo_path;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getOrigin_country() {
         return origin_country;
     }
@@ -47,10 +47,10 @@ public class ProductionCompany{
 
     @Override
     public String toString() {
-        return "ProductionCompany{" +
-                "id=" + id +
+        return "Network{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
                 ", logo_path='" + logo_path + '\'' +
-                ", name='" + name + '\'' +
                 ", origin_country='" + origin_country + '\'' +
                 '}';
     }

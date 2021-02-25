@@ -1,9 +1,9 @@
 package com.example.time2watch.classes.subclasses;
 
 public class SpokenLanguage{
-    public String english_name;
-    public String iso_639_1;
-    public String name;
+    private String english_name;
+    private String iso_639_1;
+    private String name;
 
     public SpokenLanguage(String english_name, String iso_639_1, String name) {
         this.english_name = english_name;

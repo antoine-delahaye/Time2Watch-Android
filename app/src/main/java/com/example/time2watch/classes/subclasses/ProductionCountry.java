@@ -1,8 +1,8 @@
 package com.example.time2watch.classes.subclasses;
 
 public class ProductionCountry{
-    public String iso_3166_1;
-    public String name;
+    private String iso_3166_1;
+    private String name;
 
     public ProductionCountry(String iso_3166_1, String name) {
         this.iso_3166_1 = iso_3166_1;

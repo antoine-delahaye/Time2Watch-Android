@@ -1,8 +1,8 @@
 package com.example.time2watch.classes.subclasses;
 
 public class Genre{
-    public String id;
-    public String name;
+    private String id;
+    private String name;
 
     public Genre(String id, String name) {
         this.id = id;

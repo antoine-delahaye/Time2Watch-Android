@@ -3,21 +3,21 @@ package com.example.time2watch.classes;
 import java.util.Arrays;
 
 public class TrendingMovie {
-    public boolean adult;
-    public String backdrop_path;
-    public String[] genre_ids;
-    public String id;
-    public String original_language;
-    public String original_title;
-    public String overview;
-    public String poster_path;
-    public String release_date;
-    public String title;
-    public boolean video;
-    public String vote_average;
-    public String vote_count;
-    public String popularity;
-    public String media_type;
+    private boolean adult;
+    private String backdrop_path;
+    private String[] genre_ids;
+    private String id;
+    private String original_language;
+    private String original_title;
+    private String overview;
+    private String poster_path;
+    private String release_date;
+    private String title;
+    private boolean video;
+    private String vote_average;
+    private String vote_count;
+    private String popularity;
+    private String media_type;
 
     public TrendingMovie(boolean adult, String backdrop_path, String[] genre_ids, String id, String original_language, String original_title, String overview, String poster_path, String release_date, String title, boolean video, String vote_average, String vote_count, String popularity, String media_type) {
         this.adult = adult;
