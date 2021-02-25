@@ -23,7 +23,7 @@ public class MovieAPI extends AsyncTask<Integer, Void, Movie> {
         try {
             jsonObject = getJSON("https://api.themoviedb.org/3/movie/" + integers[0] + "?api_key=" + apiKey + "&language=fr");
         } catch (IndexOutOfBoundsException e) {
-            Log.d("TrendingMovies", "Not a valid movie ID");
+            Log.d("GetMovie", "Not a valid movie ID");
             return new Movie();
         }
         Gson gson = new Gson();
