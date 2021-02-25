@@ -3,18 +3,16 @@ package com.example.time2watch.api;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.time2watch.classes.Movie;
-import com.example.time2watch.classes.TVShow;
+import com.example.time2watch.classes.TrendingTVShow;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import java.io.IOException;
 import java.util.Arrays;
 
 import static com.example.time2watch.utils.Utils.getJSON;
 
-public class TrendingTVShows extends AsyncTask<String, Void, TVShow[]> {
+public class TrendingTVShowsAPI extends AsyncTask<String, Void, TrendingTVShow[]> {
     public final static String WEEK = "week";
     public final static String DAY = "day";
 
@@ -24,20 +22,20 @@ public class TrendingTVShows extends AsyncTask<String, Void, TVShow[]> {
     }
 
     @Override
-    protected TVShow[] doInBackground(String... strings) {
+    protected TrendingTVShow[] doInBackground(String... strings) {
         String apiKey = "ccbc42c4b357545c785bb0d1caba6301"; // TODO Transfer this into string global to project
-        JsonObject jsonObject = null;
+        JsonObject jsonObject;
         try {
             jsonObject = getJSON("https://api.themoviedb.org/3/trending/tv/" + strings[0] + "?api_key=" + apiKey + "&language=fr");
         } catch (IndexOutOfBoundsException e) {
             Log.d("TrendingMovies", "Please choose between WEEK or DAY in execute()");
-            return new TVShow[]{};
+            return new TrendingTVShow[]{};
         }
         Gson gson = new Gson();
         JsonElement jsonElement = jsonObject.get("results");
-        TVShow[] tvShowArray = gson.fromJson(jsonElement, TVShow[].class);
+        TrendingTVShow[] tvShowArray = gson.fromJson(jsonElement, TrendingTVShow[].class);
 
-        for (TVShow tvShow : tvShowArray) {
+        for (TrendingTVShow tvShow : tvShowArray) {
             tvShow.setBackdrop_path("https://www.themoviedb.org/t/p/original" + tvShow.getBackdrop_path());
             tvShow.setPoster_path("https://www.themoviedb.org/t/p/original" + tvShow.getPoster_path());
         }
@@ -45,7 +43,7 @@ public class TrendingTVShows extends AsyncTask<String, Void, TVShow[]> {
     }
 
     @Override
-    protected void onPostExecute(TVShow[] tvShow) {
+    protected void onPostExecute(TrendingTVShow[] tvShow) {
         super.onPostExecute(tvShow);
         Log.d("TrendingTVShows", Arrays.toString(tvShow));
         Log.d("TrendingTVShows", tvShow.length + " TVShows");

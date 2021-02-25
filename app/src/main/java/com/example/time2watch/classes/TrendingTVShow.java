@@ -2,7 +2,7 @@ package com.example.time2watch.classes;
 
 import java.util.Arrays;
 
-public class TVShow {
+public class TrendingTVShow {
     public String backdrop_path;
     public int[] genre_ids;
     public String original_language;
@@ -18,7 +18,7 @@ public class TVShow {
     public double popularity;
     public String media_type;
 
-    public TVShow(String backdrop_path, int[] genre_ids, String original_language, int vote_count, String first_air_date, String[] origin_country, String poster_path, double vote_average, int id, String overview, String name, String original_name, double popularity, String media_type) {
+    public TrendingTVShow(String backdrop_path, int[] genre_ids, String original_language, int vote_count, String first_air_date, String[] origin_country, String poster_path, double vote_average, int id, String overview, String name, String original_name, double popularity, String media_type) {
         this.backdrop_path = backdrop_path;
         this.genre_ids = genre_ids;
         this.original_language = original_language;
