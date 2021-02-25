@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class TrendingMovie {
     public boolean adult;
     public String backdrop_path;
-    public int[] genre_ids;
-    public int id;
+    public String[] genre_ids;
+    public String id;
     public String original_language;
     public String original_title;
     public String overview;
@@ -14,12 +14,12 @@ public class TrendingMovie {
     public String release_date;
     public String title;
     public boolean video;
-    public double vote_average;
-    public int vote_count;
-    public double popularity;
+    public String vote_average;
+    public String vote_count;
+    public String popularity;
     public String media_type;
 
-    public TrendingMovie(boolean adult, String backdrop_path, int[] genre_ids, int id, String original_language, String original_title, String overview, String poster_path, String release_date, String title, boolean video, double vote_average, int vote_count, double popularity, String media_type) {
+    public TrendingMovie(boolean adult, String backdrop_path, String[] genre_ids, String id, String original_language, String original_title, String overview, String poster_path, String release_date, String title, boolean video, String vote_average, String vote_count, String popularity, String media_type) {
         this.adult = adult;
         this.backdrop_path = backdrop_path;
         this.genre_ids = genre_ids;
@@ -53,19 +53,19 @@ public class TrendingMovie {
         this.backdrop_path = backdrop_path;
     }
 
-    public int[] getGenre_ids() {
+    public String[] getGenre_ids() {
         return genre_ids;
     }
 
-    public void setGenre_ids(int[] genre_ids) {
+    public void setGenre_ids(String[] genre_ids) {
         this.genre_ids = genre_ids;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -125,27 +125,27 @@ public class TrendingMovie {
         this.video = video;
     }
 
-    public double getVote_average() {
+    public String getVote_average() {
         return vote_average;
     }
 
-    public void setVote_average(double vote_average) {
+    public void setVote_average(String vote_average) {
         this.vote_average = vote_average;
     }
 
-    public int getVote_count() {
+    public String getVote_count() {
         return vote_count;
     }
 
-    public void setVote_count(int vote_count) {
+    public void setVote_count(String vote_count) {
         this.vote_count = vote_count;
     }
 
-    public double getPopularity() {
+    public String getPopularity() {
         return popularity;
     }
 
-    public void setPopularity(double popularity) {
+    public void setPopularity(String popularity) {
         this.popularity = popularity;
     }
 

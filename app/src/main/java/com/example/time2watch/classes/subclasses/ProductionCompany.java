@@ -1,23 +1,23 @@
 package com.example.time2watch.classes.subclasses;
 
 public class ProductionCompany{
-    public int id;
+    public String id;
     public String logo_path;
     public String name;
     public String origin_country;
 
-    public ProductionCompany(int id, String logo_path, String name, String origin_country) {
+    public ProductionCompany(String id, String logo_path, String name, String origin_country) {
         this.id = id;
         this.logo_path = logo_path;
         this.name = name;
         this.origin_country = origin_country;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

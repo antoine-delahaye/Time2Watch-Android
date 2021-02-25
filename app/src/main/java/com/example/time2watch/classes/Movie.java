@@ -10,36 +10,34 @@ import java.util.Arrays;
 public class Movie {
     public boolean adult;
     public String backdrop_path;
-    public Object belongs_to_collection;
-    public int budget;
+    public String budget;
     public Genre[] genres;
     public String homepage;
-    public int id;
+    public String id;
     public String imdb_id;
     public String original_language;
     public String original_title;
     public String overview;
-    public double popularity;
+    public String popularity;
     public String poster_path;
     public ProductionCompany[] production_companies;
     public ProductionCountry[] production_countries;
     public String release_date;
-    public int revenue;
-    public int runtime;
+    public String revenue;
+    public String runtime;
     public SpokenLanguage[] spoken_languages;
     public String status;
     public String tagline;
     public String title;
     public boolean video;
-    public double vote_average;
-    public int vote_count;
+    public String vote_average;
+    public String vote_count;
 
     public Movie() { }
 
-    public Movie(boolean adult, String backdrop_path, Object belongs_to_collection, int budget, Genre[] genres, String homepage, int id, String imdb_id, String original_language, String original_title, String overview, double popularity, String poster_path, ProductionCompany[] production_companies, ProductionCountry[] production_countries, String release_date, int revenue, int runtime, SpokenLanguage[] spoken_languages, String status, String tagline, String title, boolean video, double vote_average, int vote_count) {
+    public Movie(boolean adult, String backdrop_path, String budget, Genre[] genres, String homepage, String id, String imdb_id, String original_language, String original_title, String overview, String popularity, String poster_path, ProductionCompany[] production_companies, ProductionCountry[] production_countries, String release_date, String revenue, String runtime, SpokenLanguage[] spoken_languages, String status, String tagline, String title, boolean video, String vote_average, String vote_count) {
         this.adult = adult;
         this.backdrop_path = backdrop_path;
-        this.belongs_to_collection = belongs_to_collection;
         this.budget = budget;
         this.genres = genres;
         this.homepage = homepage;
@@ -80,19 +78,11 @@ public class Movie {
         this.backdrop_path = backdrop_path;
     }
 
-    public Object getBelongs_to_collection() {
-        return belongs_to_collection;
-    }
-
-    public void setBelongs_to_collection(Object belongs_to_collection) {
-        this.belongs_to_collection = belongs_to_collection;
-    }
-
-    public int getBudget() {
+    public String getBudget() {
         return budget;
     }
 
-    public void setBudget(int budget) {
+    public void setBudget(String budget) {
         this.budget = budget;
     }
 
@@ -112,11 +102,11 @@ public class Movie {
         this.homepage = homepage;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -152,11 +142,11 @@ public class Movie {
         this.overview = overview;
     }
 
-    public double getPopularity() {
+    public String getPopularity() {
         return popularity;
     }
 
-    public void setPopularity(double popularity) {
+    public void setPopularity(String popularity) {
         this.popularity = popularity;
     }
 
@@ -192,19 +182,19 @@ public class Movie {
         this.release_date = release_date;
     }
 
-    public int getRevenue() {
+    public String getRevenue() {
         return revenue;
     }
 
-    public void setRevenue(int revenue) {
+    public void setRevenue(String revenue) {
         this.revenue = revenue;
     }
 
-    public int getRuntime() {
+    public String getRuntime() {
         return runtime;
     }
 
-    public void setRuntime(int runtime) {
+    public void setRuntime(String runtime) {
         this.runtime = runtime;
     }
 
@@ -248,19 +238,19 @@ public class Movie {
         this.video = video;
     }
 
-    public double getVote_average() {
+    public String getVote_average() {
         return vote_average;
     }
 
-    public void setVote_average(double vote_average) {
+    public void setVote_average(String vote_average) {
         this.vote_average = vote_average;
     }
 
-    public int getVote_count() {
+    public String getVote_count() {
         return vote_count;
     }
 
-    public void setVote_count(int vote_count) {
+    public void setVote_count(String vote_count) {
         this.vote_count = vote_count;
     }
 
@@ -269,7 +259,6 @@ public class Movie {
         return "Movie{" +
                 "adult=" + adult +
                 ", backdrop_path='" + backdrop_path + '\'' +
-                ", belongs_to_collection=" + belongs_to_collection +
                 ", budget=" + budget +
                 ", genres=" + Arrays.toString(genres) +
                 ", homepage='" + homepage + '\'' +

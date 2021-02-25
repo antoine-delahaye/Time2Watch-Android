@@ -1,19 +1,19 @@
 package com.example.time2watch.classes.subclasses;
 
 public class Genre{
-    public int id;
+    public String id;
     public String name;
 
-    public Genre(int id, String name) {
+    public Genre(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

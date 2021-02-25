@@ -4,21 +4,21 @@ import java.util.Arrays;
 
 public class TrendingTVShow {
     public String backdrop_path;
-    public int[] genre_ids;
+    public String[] genre_ids;
     public String original_language;
-    public int vote_count;
+    public String vote_count;
     public String first_air_date;
     public String[] origin_country;
     public String poster_path;
-    public double vote_average;
-    public int id;
+    public String vote_average;
+    public String id;
     public String overview;
     public String name;
     public String original_name;
-    public double popularity;
+    public String popularity;
     public String media_type;
 
-    public TrendingTVShow(String backdrop_path, int[] genre_ids, String original_language, int vote_count, String first_air_date, String[] origin_country, String poster_path, double vote_average, int id, String overview, String name, String original_name, double popularity, String media_type) {
+    public TrendingTVShow(String backdrop_path, String[] genre_ids, String original_language, String vote_count, String first_air_date, String[] origin_country, String poster_path, String vote_average, String id, String overview, String name, String original_name, String popularity, String media_type) {
         this.backdrop_path = backdrop_path;
         this.genre_ids = genre_ids;
         this.original_language = original_language;
@@ -43,11 +43,11 @@ public class TrendingTVShow {
         this.backdrop_path = backdrop_path;
     }
 
-    public int[] getGenre_ids() {
+    public String[] getGenre_ids() {
         return genre_ids;
     }
 
-    public void setGenre_ids(int[] genre_ids) {
+    public void setGenre_ids(String[] genre_ids) {
         this.genre_ids = genre_ids;
     }
 
@@ -59,11 +59,11 @@ public class TrendingTVShow {
         this.original_language = original_language;
     }
 
-    public int getVote_count() {
+    public String getVote_count() {
         return vote_count;
     }
 
-    public void setVote_count(int vote_count) {
+    public void setVote_count(String vote_count) {
         this.vote_count = vote_count;
     }
 
@@ -91,19 +91,19 @@ public class TrendingTVShow {
         this.poster_path = poster_path;
     }
 
-    public double getVote_average() {
+    public String getVote_average() {
         return vote_average;
     }
 
-    public void setVote_average(double vote_average) {
+    public void setVote_average(String vote_average) {
         this.vote_average = vote_average;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -131,11 +131,11 @@ public class TrendingTVShow {
         this.original_name = original_name;
     }
 
-    public double getPopularity() {
+    public String getPopularity() {
         return popularity;
     }
 
-    public void setPopularity(double popularity) {
+    public void setPopularity(String popularity) {
         this.popularity = popularity;
     }
 
