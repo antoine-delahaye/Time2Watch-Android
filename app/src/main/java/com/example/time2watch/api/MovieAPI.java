@@ -8,6 +8,7 @@ import com.example.time2watch.classes.Movie;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import static com.example.time2watch.utils.Utils.fixImageURL;
 import static com.example.time2watch.utils.Utils.getJSON;
 
 
@@ -24,19 +25,18 @@ public class MovieAPI extends AsyncTask<Integer, Void, Movie> {
         try {
             jsonObject = getJSON("https://api.themoviedb.org/3/movie/" + integers[0] + "?api_key=" + API_KEY + "&language=fr");
         } catch (IndexOutOfBoundsException e) {
-            Log.d("GetMovie", "Not a valid movie ID");
+            Log.d("Movie", "Not a valid movie ID");
             return new Movie();
         }
         Gson gson = new Gson();
         Movie movie = gson.fromJson(jsonObject, Movie.class);
-        movie.setBackdrop_path("https://www.themoviedb.org/t/p/original" + movie.getBackdrop_path());
-        movie.setPoster_path("https://www.themoviedb.org/t/p/original" + movie.getPoster_path());
+        fixImageURL(movie);
         return movie;
     }
 
     @Override
     protected void onPostExecute(Movie movie) {
         super.onPostExecute(movie);
-        Log.d("GetMovie", movie.toString());
+        Log.d("Movie", movie.toString());
     }
 }

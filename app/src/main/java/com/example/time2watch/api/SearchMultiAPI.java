@@ -15,9 +15,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.example.time2watch.utils.Utils.fixImageURL;
 import static com.example.time2watch.utils.Utils.getJSON;
 
-public class SearchMulti extends AsyncTask<String, Void, Object[]> {
+public class SearchMultiAPI extends AsyncTask<String, Void, Object[]> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -28,9 +29,9 @@ public class SearchMulti extends AsyncTask<String, Void, Object[]> {
         String API_KEY = BuildConfig.API_KEY;
         JsonObject jsonObject;
         try {
-            jsonObject = getJSON("https://api.themoviedb.org/3/search/multi?api_key=" + API_KEY + "&language=fr&query=" + strings[0] + "&page=1&include_adult=true");
+            jsonObject = getJSON("https://api.themoviedb.org/3/search/multi?api_key=" + API_KEY + "&language=fr&query=" + strings[0] + "&page=1&include_adult=false");
         } catch (IndexOutOfBoundsException e) {
-            Log.d("GetMovie", "Not a valid movie ID");
+            Log.d("SearchMulti", "Please enter a name to search...");
             return new Object[]{};
         }
         Gson gson = new Gson();
@@ -43,18 +44,12 @@ public class SearchMulti extends AsyncTask<String, Void, Object[]> {
 
             if (mediaType.equals("movie")) {
                 Movie movie = gson.fromJson(jsonObject1, Movie.class);
-                if (movie.getPoster_path() != null)
-                    movie.setPoster_path("https://www.themoviedb.org/t/p/original" + movie.getPoster_path());
-                if (movie.getBackdrop_path() != null)
-                    movie.setBackdrop_path("https://www.themoviedb.org/t/p/original" + movie.getBackdrop_path());
+                fixImageURL(movie);
                 resultList.add(movie);
 
             } else if (mediaType.equals("tv")) {
                 TVShow tvShow = gson.fromJson(jsonObject1, TVShow.class);
-                if (tvShow.getPoster_path() != null)
-                    tvShow.setPoster_path("https://www.themoviedb.org/t/p/original" + tvShow.getPoster_path());
-                if (tvShow.getBackdrop_path() != null)
-                    tvShow.setBackdrop_path("https://www.themoviedb.org/t/p/original" + tvShow.getBackdrop_path());
+                fixImageURL(tvShow);
                 resultList.add(tvShow);
             }
         }

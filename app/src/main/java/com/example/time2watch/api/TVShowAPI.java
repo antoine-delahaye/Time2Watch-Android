@@ -8,6 +8,7 @@ import com.example.time2watch.classes.TVShow;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import static com.example.time2watch.utils.Utils.fixImageURL;
 import static com.example.time2watch.utils.Utils.getJSON;
 
 public class TVShowAPI extends AsyncTask<Integer, Void, TVShow> {
@@ -28,8 +29,7 @@ public class TVShowAPI extends AsyncTask<Integer, Void, TVShow> {
         }
         Gson gson = new Gson();
         TVShow tvShow = gson.fromJson(jsonObject, TVShow.class);
-        tvShow.setBackdrop_path("https://www.themoviedb.org/t/p/original" + tvShow.getBackdrop_path());
-        tvShow.setPoster_path("https://www.themoviedb.org/t/p/original" + tvShow.getPoster_path());
+        fixImageURL(tvShow);
         return tvShow;
     }
 

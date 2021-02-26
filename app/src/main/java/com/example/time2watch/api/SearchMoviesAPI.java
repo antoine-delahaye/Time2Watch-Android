@@ -14,9 +14,7 @@ import java.util.Arrays;
 import static com.example.time2watch.utils.Utils.fixImageURL;
 import static com.example.time2watch.utils.Utils.getJSON;
 
-public class TrendingMoviesAPI extends AsyncTask<String, Void, Movie[]> {
-    public final static String WEEK = "week";
-    public final static String DAY  = "day";
+public class SearchMovies extends AsyncTask<String, Void, Movie[]> {
 
     @Override
     protected void onPreExecute() {
@@ -28,9 +26,9 @@ public class TrendingMoviesAPI extends AsyncTask<String, Void, Movie[]> {
         String API_KEY = BuildConfig.API_KEY;
         JsonObject jsonObject;
         try {
-            jsonObject = getJSON("https://api.themoviedb.org/3/trending/movie/" + strings[0] + "?api_key=" + API_KEY + "&language=fr");
+            jsonObject = getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=fr&page=1&query=" + strings[0] + "&include_adult=false");
         } catch (IndexOutOfBoundsException e) {
-            Log.d("TrendingMovies", "Please choose between WEEK or DAY in execute()");
+            Log.d("SearchMovies", "Please enter a name to search...");
             return new Movie[]{};
         }
         Gson gson = new Gson();
@@ -43,9 +41,8 @@ public class TrendingMoviesAPI extends AsyncTask<String, Void, Movie[]> {
     }
 
     @Override
-    protected void onPostExecute(Movie[] movies) {
-        super.onPostExecute(movies);
-        Log.d("TrendingMovies", Arrays.toString(movies));
-        Log.d("TrendingMovies", movies.length + " Movies");
+    protected void onPostExecute(Movie[] movie) {
+        super.onPostExecute(movie);
+        Log.d("SearchMovies", Arrays.toString(movie));
     }
 }
