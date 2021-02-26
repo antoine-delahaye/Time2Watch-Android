@@ -11,16 +11,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.time2watch.classes.Movie;
+import com.example.time2watch.classes.TrendingMovie;
 import com.squareup.picasso.Picasso;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    private final Movie[] movies;
+    private final TrendingMovie[] movies;
 
     private Context context;
 
-    public MovieAdapter(Movie[] movies) {
+    public MovieAdapter(TrendingMovie[] movies) {
         this.movies = movies;
     }
 
@@ -34,18 +34,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(MovieAdapter.MovieViewHolder holder, int position) {
-        Movie movie = this.movies[position];
-        Picasso.get().load(movie.poster_path).into(holder.poster);
-        holder.title.setText(movie.title);
-        holder.release_date.setText(this.context.getString(R.string.release_date, movie.release_date));
-        holder.vote_average.setText(this.context.getString(R.string.vote_average, String.valueOf(movie.vote_average)));
+        TrendingMovie movie = this.movies[position];
+        Picasso.get().load(movie.getPoster_path()).into(holder.poster);
+        holder.title.setText(movie.getTitle());
+        holder.release_date.setText(this.context.getString(R.string.release_date, movie.getRelease_date()));
+        holder.vote_average.setText(this.context.getString(R.string.vote_average, movie.getVote_average()));
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, MovieDetailActivity.class);
-            intent.putExtra("poster_path", movie.poster_path);
-            intent.putExtra("title", movie.title);
-            intent.putExtra("release_date", movie.release_date);
-            intent.putExtra("vote_average", movie.vote_average);
-            intent.putExtra("overview", movie.overview);
+            intent.putExtra("poster_path", movie.getPoster_path());
+            intent.putExtra("title", movie.getTitle());
+            intent.putExtra("release_date", movie.getRelease_date());
+            intent.putExtra("vote_average", movie.getVote_average());
+            intent.putExtra("overview", movie.getOverview());
             context.startActivity(intent);
         });
     }

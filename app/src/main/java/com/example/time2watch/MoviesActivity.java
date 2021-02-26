@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.time2watch.api.TrendingMovies;
+import com.example.time2watch.api.TrendingMoviesAPI;
 
 public class MoviesActivity extends AppCompatActivity {
 
@@ -16,7 +16,7 @@ public class MoviesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movies);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        new TrendingMovies(recyclerView).execute(TrendingMovies.WEEK);
+        new TrendingMoviesAPI(recyclerView).execute(TrendingMoviesAPI.WEEK);
     }
 
 }
