@@ -12,7 +12,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class Utils {
-    public static JsonObject getJSON(String url) throws IOException {
+    public static JsonObject getJSON(String url) {
         try (InputStream is = new URL(url).openStream()) {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String jsonText = readAll(rd);
