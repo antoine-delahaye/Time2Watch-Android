@@ -3,6 +3,7 @@ package com.example.time2watch.api;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.time2watch.BuildConfig;
 import com.example.time2watch.classes.TVShow;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -17,10 +18,10 @@ public class TVShowAPI extends AsyncTask<Integer, Void, TVShow> {
 
     @Override
     protected TVShow doInBackground(Integer... integers) {
-        String apiKey = "ccbc42c4b357545c785bb0d1caba6301"; // TODO Transfer this into string global to project
+        String API_KEY = BuildConfig.API_KEY;
         JsonObject jsonObject;
         try {
-            jsonObject = getJSON("https://api.themoviedb.org/3/tv/" + integers[0] + "?api_key=" + apiKey + "&language=fr");
+            jsonObject = getJSON("https://api.themoviedb.org/3/tv/" + integers[0] + "?api_key=" + API_KEY + "&language=fr");
         } catch (IndexOutOfBoundsException e) {
             Log.d("TVShow", "Not a valid tv show ID");
             return new TVShow();
