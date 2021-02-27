@@ -14,7 +14,6 @@
         android:contentDescription="@string/poster_description"
         android:maxHeight="93dp"
         android:scaleType="fitXY"
-        android:src="@drawable/small_movie_poster"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
