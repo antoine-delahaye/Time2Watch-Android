@@ -8,7 +8,7 @@
     android:padding="5dp">
 
     <ImageView
-        android:id="@+id/movie_row_poster"
+        android:id="@+id/tvshow_row_poster"
         android:layout_width="70dp"
         android:layout_height="100dp"
         android:adjustViewBounds="true"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/small_poster" />
 
     <TextView
-        android:id="@+id/movie_row_title"
+        android:id="@+id/tvshow_row_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
@@ -29,17 +29,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/movie_row_release_date"
+        android:id="@+id/tvshow_row_air_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
         android:layout_marginBottom="6dp"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/movie_row_vote_average"
+        app:layout_constraintBottom_toTopOf="@+id/tvshow_row_vote_average"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/movie_row_vote_average"
+        android:id="@+id/tvshow_row_vote_average"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"

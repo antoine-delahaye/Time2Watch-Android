@@ -5,7 +5,7 @@ import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.time2watch.MovieAdapter;
+import com.example.time2watch.ui.movies.MovieAdapter;
 import com.example.time2watch.classes.TrendingMovie;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;

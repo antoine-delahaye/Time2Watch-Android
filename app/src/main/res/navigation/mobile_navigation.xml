@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_movies">
+
+    <fragment
+        android:id="@+id/nav_movies"
+        android:name="com.example.time2watch.ui.movies.MoviesFragment"
+        android:label="@string/menu_movies"
+        tools:layout="@layout/fragment_movies" />
+
+    <fragment
+        android:id="@+id/nav_tvshows"
+        android:name="com.example.time2watch.ui.tvshows.TVShowsFragment"
+        android:label="@string/menu_tvshows"
+        tools:layout="@layout/fragment_tvshows" />
+
+</navigation>

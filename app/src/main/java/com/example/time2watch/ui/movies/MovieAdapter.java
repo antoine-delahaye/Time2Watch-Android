@@ -1,4 +1,4 @@
-package com.example.time2watch;
+package com.example.time2watch.ui.movies;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.time2watch.R;
 import com.example.time2watch.classes.TrendingMovie;
 import com.squareup.picasso.Picasso;
 
@@ -28,8 +29,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     @Override
     public MovieAdapter.MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         this.context = parent.getContext();
-        View view = LayoutInflater.from(this.context).inflate(R.layout.movie_row, parent, false);
-        return new MovieViewHolder(view);
+        return new MovieViewHolder(LayoutInflater.from(this.context).inflate(R.layout.movie_row, parent, false));
     }
 
     @Override
@@ -67,10 +67,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-            this.poster = itemView.findViewById(R.id.RowPoster);
-            this.title = itemView.findViewById(R.id.RowTitle);
-            this.release_date = itemView.findViewById(R.id.RowReleaseDate);
-            this.vote_average = itemView.findViewById(R.id.RowVoteAverage);
+            this.poster = itemView.findViewById(R.id.movie_row_poster);
+            this.title = itemView.findViewById(R.id.movie_row_title);
+            this.release_date = itemView.findViewById(R.id.movie_row_release_date);
+            this.vote_average = itemView.findViewById(R.id.movie_row_vote_average);
         }
 
     }
