@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/row_poster"
         android:layout_width="70dp"
-        android:layout_height="95dp"
+        android:layout_height="100dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/poster_description"
         android:scaleType="fitXY"

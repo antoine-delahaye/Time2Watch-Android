@@ -1,4 +1,4 @@
-package com.example.time2watch;
+package com.example.time2watch.ui.movies;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.time2watch.R;
 import com.example.time2watch.classes.TrendingMovie;
 import com.squareup.picasso.Picasso;
 
