@@ -29,8 +29,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     @Override
     public MovieAdapter.MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         this.context = parent.getContext();
-        View view = LayoutInflater.from(this.context).inflate(R.layout.movie_row, parent, false);
-        return new MovieViewHolder(view);
+        return new MovieViewHolder(LayoutInflater.from(this.context).inflate(R.layout.movie_row, parent, false));
     }
 
     @Override
@@ -68,10 +67,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-            this.poster = itemView.findViewById(R.id.row_poster);
-            this.title = itemView.findViewById(R.id.row_title);
-            this.release_date = itemView.findViewById(R.id.row_release_date);
-            this.vote_average = itemView.findViewById(R.id.row_vote_average);
+            this.poster = itemView.findViewById(R.id.movie_row_poster);
+            this.title = itemView.findViewById(R.id.movie_row_title);
+            this.release_date = itemView.findViewById(R.id.movie_row_release_date);
+            this.vote_average = itemView.findViewById(R.id.movie_row_vote_average);
         }
 
     }

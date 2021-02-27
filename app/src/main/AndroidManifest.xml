@@ -24,6 +24,8 @@
 
         <activity android:name=".ui.movies.MovieDetailActivity" />
 
+        <activity android:name=".ui.tvshows.TVShowDetailActivity" />
+
     </application>
 
 </manifest>
