@@ -11,4 +11,8 @@
     <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
     <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
     <string name="menu_tvshows">Séries TV</string>
+    <string name="trending_movies_period">Films populaires...</string>
+    <string name="trending_tvshows_period">Séries TV populaires...</string>
+    <string name="week_period">de la semaine</string>
+    <string name="day_period">du jour</string>
 </resources>

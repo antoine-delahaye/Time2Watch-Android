@@ -1,7 +1,10 @@
 package com.example.time2watch;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -35,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.nav_host_fragment), this.appBarConfiguration) || super.onSupportNavigateUp();
+    }
+
+    public boolean filtersActivity() {
+        startActivity(new Intent(this, FiltersActivity.class));
+        return true;
     }
 
 }
