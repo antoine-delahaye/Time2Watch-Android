@@ -4,4 +4,9 @@
     <string name="release_date">Release date : %1$s</string>
     <string name="vote_average">Vote average : %1$s/10</string>
     <string name="overview">Overview : %1$s</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_filters">Filters</string>
+    <string name="menu_movies">Movies</string>
 </resources>

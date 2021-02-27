@@ -67,10 +67,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-            this.poster = itemView.findViewById(R.id.RowPoster);
-            this.title = itemView.findViewById(R.id.RowTitle);
-            this.release_date = itemView.findViewById(R.id.RowReleaseDate);
-            this.vote_average = itemView.findViewById(R.id.RowVoteAverage);
+            this.poster = itemView.findViewById(R.id.row_poster);
+            this.title = itemView.findViewById(R.id.row_title);
+            this.release_date = itemView.findViewById(R.id.row_release_date);
+            this.vote_average = itemView.findViewById(R.id.row_vote_average);
         }
 
     }

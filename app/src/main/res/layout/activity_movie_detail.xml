@@ -24,7 +24,8 @@
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="15dp"
                 android:contentDescription="@string/poster_description"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/large_movie_poster" />
 
             <TextView
                 android:id="@+id/DetailTitle"
