@@ -10,4 +10,8 @@
     <string name="action_filters">Filters</string>
     <string name="menu_movies">Movies</string>
     <string name="menu_tvshows">TV shows</string>
+    <string name="trending_movies_period">Trending movies of the...</string>
+    <string name="trending_tvshows_period">Trending TV shows of the...</string>
+    <string name="week_period">week</string>
+    <string name="day_period">day</string>
 </resources>

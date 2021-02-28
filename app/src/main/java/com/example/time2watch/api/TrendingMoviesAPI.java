@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.time2watch.MainActivity;
 import com.example.time2watch.ui.movies.MovieAdapter;
 import com.example.time2watch.classes.TrendingMovie;
 import com.google.gson.Gson;
@@ -14,16 +15,6 @@ import com.google.gson.JsonObject;
 import static com.example.time2watch.utils.Utils.getJSON;
 
 public class TrendingMoviesAPI extends AsyncTask<String, Void, TrendingMovie[]> {
-
-    public final static String WEEK = "week";
-
-    public final static String DAY = "day";
-
-    private final RecyclerView recyclerView;
-
-    public TrendingMoviesAPI(RecyclerView recyclerView) {
-        this.recyclerView = recyclerView;
-    }
 
     @Override
     protected void onPreExecute() {
@@ -54,7 +45,7 @@ public class TrendingMoviesAPI extends AsyncTask<String, Void, TrendingMovie[]> 
     @Override
     protected void onPostExecute(TrendingMovie[] movies) {
         super.onPostExecute(movies);
-        this.recyclerView.setAdapter(new MovieAdapter(movies));
+        MainActivity.moviesRecyclerView.setAdapter(new MovieAdapter(movies));
     }
 
 }
