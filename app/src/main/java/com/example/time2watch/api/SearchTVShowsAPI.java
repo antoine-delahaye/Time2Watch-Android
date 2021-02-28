@@ -15,7 +15,7 @@ import java.util.Arrays;
 import static com.example.time2watch.utils.Utils.fixImageURL;
 import static com.example.time2watch.utils.Utils.getJSON;
 
-public class SearchTVShows extends AsyncTask<String, Void, TVShow[]> {
+public class SearchTVShowsAPI extends AsyncTask<String, Void, TVShow[]> {
 
     @Override
     protected void onPreExecute() {
