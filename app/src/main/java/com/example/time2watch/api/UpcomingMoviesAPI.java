@@ -24,8 +24,8 @@ public class UpcomingMoviesAPI extends AsyncTask<Void, Void, Movie[]> {
         JsonObject jsonObject = getJSON("https://api.themoviedb.org/3/movie/upcoming?api_key=" + BuildConfig.API_KEY + "&language=fr&page=1");
         Movie[] movieArray = new Gson().fromJson(jsonObject.get("results"), Movie[].class);
 
-        for (Movie tvShows : movieArray)
-            fixImageURL(tvShows);
+        for (Movie movie : movieArray)
+            fixImageURL(movie);
         return movieArray;
     }
 
