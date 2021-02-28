@@ -12,10 +12,23 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
+
+    public static RecyclerView moviesRecyclerView;
+
+    public static RecyclerView tvShowsRecyclerView;
+
+    public final static String WEEK = "week";
+
+    public final static String DAY = "day";
+
+    public static boolean rbMovies = false;
+
+    public static boolean rbTVShows = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

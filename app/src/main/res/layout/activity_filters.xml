@@ -36,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
                 android:checked="true"
+                android:onClick="onMoviesRadioButtonClicked"
                 android:text="@string/week_period" />
 
             <RadioButton
@@ -43,6 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:onClick="onMoviesRadioButtonClicked"
                 android:text="@string/day_period" />
 
         </RadioGroup>
@@ -67,6 +69,7 @@
                 android:layout_marginEnd="15dp"
                 android:layout_weight="1"
                 android:checked="true"
+                android:onClick="onTVShowsRadioButtonClicked"
                 android:text="@string/week_period" />
 
             <RadioButton
@@ -75,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_weight="1"
+                android:onClick="onTVShowsRadioButtonClicked"
                 android:text="@string/day_period" />
 
         </RadioGroup>
