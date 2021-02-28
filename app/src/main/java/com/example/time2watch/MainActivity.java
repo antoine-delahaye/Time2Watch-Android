@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import com.example.time2watch.api.DiscoverMovieAPI;
+import com.example.time2watch.api.DiscoverMoviesAPI;
 import com.example.time2watch.api.PopularMoviesAPI;
 import com.example.time2watch.api.PopularTVShowsAPI;
 import com.example.time2watch.api.TopRatedMoviesAPI;
@@ -35,6 +35,6 @@ public class MainActivity extends AppCompatActivity {
         AsyncTask<Void, Void, Movie[]> popularMovie = new PopularMoviesAPI().execute();
         AsyncTask<Void, Void, Movie[]> topRatedMovies = new TopRatedMoviesAPI().execute();
         AsyncTask<Void, Void, Movie[]> upcomingMovies = new UpcomingMoviesAPI().execute();
-        AsyncTask<String, Void, Movie[]> discoverMovies = new DiscoverMovieAPI().execute(DiscoverMovieAPI.POPULARITY_DESC);
+        AsyncTask<String, Void, Movie[]> discoverMovies = new DiscoverMoviesAPI().execute(DiscoverMoviesAPI.POPULARITY_DESC);
     }
 }

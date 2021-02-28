@@ -13,7 +13,7 @@ import java.util.Arrays;
 import static com.example.time2watch.utils.Utils.fixImageURL;
 import static com.example.time2watch.utils.Utils.getJSON;
 
-public class DiscoverMovieAPI extends AsyncTask<String, Void, Movie[]> {
+public class DiscoverMoviesAPI extends AsyncTask<String, Void, Movie[]> {
     public static final String POPULARITY_ASC = "popularity.asc";
     public static final String POPULARITY_DESC = "popularity.desc";
     public static final String RELEASE_DATE_ASC = "release_date.asc";
@@ -49,7 +49,7 @@ public class DiscoverMovieAPI extends AsyncTask<String, Void, Movie[]> {
                     BuildConfig.API_KEY +
                     "&language=fr&sort_by=" + choice + "&include_adult=false&include_video=false&page=1");
         } catch (IndexOutOfBoundsException e) {
-            Log.d("DiscoverMovieAPI", "Please provide a filter...");
+            Log.d("DiscoverMoviesAPI", "Please provide a filter...");
         }
 
         Movie[] movieArray = new Gson().fromJson(jsonObject.get("results"), Movie[].class);
@@ -62,6 +62,6 @@ public class DiscoverMovieAPI extends AsyncTask<String, Void, Movie[]> {
     @Override
     protected void onPostExecute(Movie[] movies) {
         super.onPostExecute(movies);
-        Log.d("DiscoverMovieAPI", Arrays.toString(movies));
+        Log.d("DiscoverMoviesAPI", Arrays.toString(movies));
     }
 }
