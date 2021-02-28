@@ -13,7 +13,7 @@ import java.util.Arrays;
 import static com.example.time2watch.utils.Utils.fixImageURL;
 import static com.example.time2watch.utils.Utils.getJSON;
 
-public class PopularTVShows extends AsyncTask<Void, Void, TVShow[]> {
+public class TopRatedTVShowsAPI extends AsyncTask<Void, Void, TVShow[]> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -21,7 +21,7 @@ public class PopularTVShows extends AsyncTask<Void, Void, TVShow[]> {
 
     @Override
     protected TVShow[] doInBackground(Void... voids) {
-        JsonObject jsonObject = getJSON("https://api.themoviedb.org/3/tv/popular?api_key=" + BuildConfig.API_KEY + "&language=fr&page=1");
+        JsonObject jsonObject = getJSON("https://api.themoviedb.org/3/tv/top_rated?api_key=" + BuildConfig.API_KEY + "&language=fr&page=1");
         TVShow[] tvShowsArray = new Gson().fromJson(jsonObject.get("results"), TVShow[].class);
 
         for (TVShow tvShows : tvShowsArray)
@@ -32,6 +32,6 @@ public class PopularTVShows extends AsyncTask<Void, Void, TVShow[]> {
     @Override
     protected void onPostExecute(TVShow[] tvShows) {
         super.onPostExecute(tvShows);
-        Log.d("PopularTVShows", Arrays.toString(tvShows));
+        Log.d("TopRatedTVShows", Arrays.toString(tvShows));
     }
 }

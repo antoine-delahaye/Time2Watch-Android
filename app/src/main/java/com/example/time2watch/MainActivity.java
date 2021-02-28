@@ -5,16 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import com.example.time2watch.api.MovieAPI;
-import com.example.time2watch.api.PopularMovies;
-import com.example.time2watch.api.PopularTVShows;
-import com.example.time2watch.api.SearchMoviesAPI;
-import com.example.time2watch.api.SearchMultiAPI;
-import com.example.time2watch.api.SearchTVShowsAPI;
-import com.example.time2watch.api.TVShowAPI;
-import com.example.time2watch.api.TopRatedTVShows;
-import com.example.time2watch.api.TrendingMoviesAPI;
-import com.example.time2watch.api.TrendingTVShowsAPI;
+import com.example.time2watch.api.PopularMoviesAPI;
+import com.example.time2watch.api.PopularTVShowsAPI;
+import com.example.time2watch.api.TopRatedMoviesAPI;
+import com.example.time2watch.api.TopRatedTVShowsAPI;
 import com.example.time2watch.classes.Movie;
 import com.example.time2watch.classes.TVShow;
 
@@ -34,8 +28,9 @@ public class MainActivity extends AppCompatActivity {
 //        AsyncTask<String, Void, Object[]> searchMulti = new SearchMultiAPI().execute("Interstellar");
 //        AsyncTask<String, Void, Movie[]> searchMovie = new SearchMoviesAPI().execute("Interstellar");
 //        AsyncTask<String, Void, TVShow[]> searchTVShow = new SearchTVShowsAPI().execute("Breaking Bad");
-        AsyncTask<Void, Void, TVShow[]> popularTVShows = new PopularTVShows().execute();
-        AsyncTask<Void, Void, TVShow[]> topRatedTVShows = new TopRatedTVShows().execute();
-        AsyncTask<Void, Void, Movie[]> popularMovie = new PopularMovies().execute();
+        AsyncTask<Void, Void, TVShow[]> popularTVShows = new PopularTVShowsAPI().execute();
+        AsyncTask<Void, Void, TVShow[]> topRatedTVShows = new TopRatedTVShowsAPI().execute();
+        AsyncTask<Void, Void, Movie[]> popularMovie = new PopularMoviesAPI().execute();
+        AsyncTask<Void, Void, Movie[]> topRatedMovies = new TopRatedMoviesAPI().execute();
     }
 }
