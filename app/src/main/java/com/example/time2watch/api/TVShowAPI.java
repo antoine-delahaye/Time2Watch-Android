@@ -19,17 +19,17 @@ public class TVShowAPI extends AsyncTask<Integer, Void, TVShow> {
 
     @Override
     protected TVShow doInBackground(Integer... integers) {
-        String API_KEY = BuildConfig.API_KEY;
         JsonObject jsonObject;
         try {
-            jsonObject = getJSON("https://api.themoviedb.org/3/tv/" + integers[0] + "?api_key=" + API_KEY + "&language=fr");
+            jsonObject = getJSON("https://api.themoviedb.org/3/tv/" + integers[0] + "?api_key=" + BuildConfig.API_KEY + "&language=fr");
         } catch (IndexOutOfBoundsException e) {
             Log.d("TVShow", "Not a valid tv show ID");
             return new TVShow();
         }
-        Gson gson = new Gson();
-        TVShow tvShow = gson.fromJson(jsonObject, TVShow.class);
+
+        TVShow tvShow = new Gson().fromJson(jsonObject, TVShow.class);
         fixImageURL(tvShow);
+        
         return tvShow;
     }
 
