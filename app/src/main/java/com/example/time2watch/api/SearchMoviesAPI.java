@@ -23,20 +23,19 @@ public class SearchMoviesAPI extends AsyncTask<String, Void, Movie[]> {
 
     @Override
     protected Movie[] doInBackground(String... strings) {
-        String API_KEY = BuildConfig.API_KEY;
         JsonObject jsonObject;
         try {
-            jsonObject = getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=fr&page=1&query=" + strings[0] + "&include_adult=false");
+            jsonObject = getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + BuildConfig.API_KEY + "&language=fr&page=1&query=" + strings[0] + "&include_adult=false");
         } catch (IndexOutOfBoundsException e) {
             Log.d("SearchMovies", "Please enter a name to search...");
             return new Movie[]{};
         }
-        Gson gson = new Gson();
-        JsonElement jsonElement = jsonObject.get("results");
-        Movie[] moviesArray = gson.fromJson(jsonElement, Movie[].class);
+        
+        Movie[] moviesArray = new Gson().fromJson(jsonObject.get("results"), Movie[].class);
 
         for (Movie movie : moviesArray)
             fixImageURL(movie);
+
         return moviesArray;
     }
 
