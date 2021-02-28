@@ -25,17 +25,15 @@ public class TrendingMoviesAPI extends AsyncTask<String, Void, Movie[]> {
 
     @Override
     protected Movie[] doInBackground(String... strings) {
-        String API_KEY = BuildConfig.API_KEY;
         JsonObject jsonObject;
         try {
-            jsonObject = getJSON("https://api.themoviedb.org/3/trending/movie/" + strings[0] + "?api_key=" + API_KEY + "&language=fr");
+            jsonObject = getJSON("https://api.themoviedb.org/3/trending/movie/" + strings[0] + "?api_key=" + BuildConfig.API_KEY + "&language=fr");
         } catch (IndexOutOfBoundsException e) {
             Log.d("TrendingMovies", "Please choose between WEEK or DAY in execute()");
             return new Movie[]{};
         }
-        Gson gson = new Gson();
-        JsonElement jsonElement = jsonObject.get("results");
-        Movie[] moviesArray = gson.fromJson(jsonElement, Movie[].class);
+
+        Movie[] moviesArray = new Gson().fromJson(jsonObject.get("results"), Movie[].class);
 
         for (Movie movie : moviesArray)
             fixImageURL(movie);
@@ -46,6 +44,5 @@ public class TrendingMoviesAPI extends AsyncTask<String, Void, Movie[]> {
     protected void onPostExecute(Movie[] movies) {
         super.onPostExecute(movies);
         Log.d("TrendingMovies", Arrays.toString(movies));
-        Log.d("TrendingMovies", movies.length + " Movies");
     }
 }
