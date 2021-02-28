@@ -29,7 +29,7 @@ public class TVShowAPI extends AsyncTask<Integer, Void, TVShow> {
 
         TVShow tvShow = new Gson().fromJson(jsonObject, TVShow.class);
         fixImageURL(tvShow);
-        
+
         return tvShow;
     }
 

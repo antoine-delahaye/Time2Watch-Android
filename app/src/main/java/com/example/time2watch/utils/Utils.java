@@ -34,8 +34,7 @@ public class Utils {
         try (InputStream is = new URL(url).openStream()) {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String jsonText = readAll(rd);
-            Gson gson = new Gson();
-            return gson.fromJson(jsonText, JsonObject.class);
+            return new Gson().fromJson(jsonText, JsonObject.class);
         } catch (IOException e) {
             e.printStackTrace();
         }

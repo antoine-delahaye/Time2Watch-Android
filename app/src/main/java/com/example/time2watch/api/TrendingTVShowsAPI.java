@@ -6,7 +6,6 @@ import android.util.Log;
 import com.example.time2watch.BuildConfig;
 import com.example.time2watch.classes.TVShow;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.util.Arrays;
