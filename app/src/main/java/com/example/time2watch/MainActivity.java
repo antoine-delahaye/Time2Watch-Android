@@ -9,6 +9,7 @@ import com.example.time2watch.api.PopularMoviesAPI;
 import com.example.time2watch.api.PopularTVShowsAPI;
 import com.example.time2watch.api.TopRatedMoviesAPI;
 import com.example.time2watch.api.TopRatedTVShowsAPI;
+import com.example.time2watch.api.UpcomingMoviesAPI;
 import com.example.time2watch.classes.Movie;
 import com.example.time2watch.classes.TVShow;
 
@@ -32,5 +33,6 @@ public class MainActivity extends AppCompatActivity {
         AsyncTask<Void, Void, TVShow[]> topRatedTVShows = new TopRatedTVShowsAPI().execute();
         AsyncTask<Void, Void, Movie[]> popularMovie = new PopularMoviesAPI().execute();
         AsyncTask<Void, Void, Movie[]> topRatedMovies = new TopRatedMoviesAPI().execute();
+        AsyncTask<Void, Void, Movie[]> upcomingMovies = new UpcomingMoviesAPI().execute();
     }
 }
