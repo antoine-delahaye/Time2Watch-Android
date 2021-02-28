@@ -30,7 +30,7 @@ public class SearchMoviesAPI extends AsyncTask<String, Void, Movie[]> {
             Log.d("SearchMovies", "Please enter a name to search...");
             return new Movie[]{};
         }
-        
+
         Movie[] moviesArray = new Gson().fromJson(jsonObject.get("results"), Movie[].class);
 
         for (Movie movie : moviesArray)

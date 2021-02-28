@@ -26,15 +26,13 @@ public class SearchMultiAPI extends AsyncTask<String, Void, Object[]> {
     //         arr = arrlist.toArray(arr);
     @Override
     protected Object[] doInBackground(String... strings) {
-        String API_KEY = BuildConfig.API_KEY;
         JsonObject jsonObject;
         try {
-            jsonObject = getJSON("https://api.themoviedb.org/3/search/multi?api_key=" + API_KEY + "&language=fr&query=" + strings[0] + "&page=1&include_adult=false");
+            jsonObject = getJSON("https://api.themoviedb.org/3/search/multi?api_key=" + BuildConfig.API_KEY + "&language=fr&query=" + strings[0] + "&page=1&include_adult=false");
         } catch (IndexOutOfBoundsException e) {
             Log.d("SearchMulti", "Please enter a name to search...");
             return new Object[]{};
         }
-        Gson gson = new Gson();
         JsonArray jsonArray = jsonObject.get("results").getAsJsonArray();
         List<Object> resultList = new ArrayList<>();
 
@@ -43,12 +41,12 @@ public class SearchMultiAPI extends AsyncTask<String, Void, Object[]> {
             String mediaType = jsonObject1.get("media_type").getAsString();
 
             if (mediaType.equals("movie")) {
-                Movie movie = gson.fromJson(jsonObject1, Movie.class);
+                Movie movie = new Gson().fromJson(jsonObject1, Movie.class);
                 fixImageURL(movie);
                 resultList.add(movie);
 
             } else if (mediaType.equals("tv")) {
-                TVShow tvShow = gson.fromJson(jsonObject1, TVShow.class);
+                TVShow tvShow = new Gson().fromJson(jsonObject1, TVShow.class);
                 fixImageURL(tvShow);
                 resultList.add(tvShow);
             }
