@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.time2watch.BuildConfig;
-import com.example.time2watch.classes.Movie;
+import com.example.time2watch.classes.TVShow;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -13,7 +13,7 @@ import java.util.Arrays;
 import static com.example.time2watch.utils.Utils.fixImageURL;
 import static com.example.time2watch.utils.Utils.getJSON;
 
-public class DiscoverMoviesAPI extends AsyncTask<String, Void, Movie[]> {
+public class DiscoverTVShowsAPI extends AsyncTask<String, Void, TVShow[]> {
     public static final String POPULARITY_ASC = "popularity.asc";
     public static final String POPULARITY_DESC = "popularity.desc";
     public static final String RELEASE_DATE_ASC = "release_date.asc";
@@ -35,7 +35,7 @@ public class DiscoverMoviesAPI extends AsyncTask<String, Void, Movie[]> {
     }
 
     @Override
-    protected Movie[] doInBackground(String... strings) {
+    protected TVShow[] doInBackground(String... strings) {
 
         String choice;
         if (strings[0] != null)
@@ -45,23 +45,23 @@ public class DiscoverMoviesAPI extends AsyncTask<String, Void, Movie[]> {
 
         JsonObject jsonObject = null;
         try {
-            jsonObject = getJSON("https://api.themoviedb.org/3/discover/movie?api_key=" +
+            jsonObject = getJSON("https://api.themoviedb.org/3/discover/tv?api_key=" +
                     BuildConfig.API_KEY +
                     "&language=fr&sort_by=" + choice + "&include_adult=false&include_video=false&page=1");
         } catch (IndexOutOfBoundsException e) {
-            Log.d("DiscoverMoviesAPI", "Please choose only one filter...");
+            Log.d("DiscoverTVShowsAPI", "Please choose only one filter...");
         }
 
-        Movie[] movieArray = new Gson().fromJson(jsonObject.get("results"), Movie[].class);
+        TVShow[] tvShowsArray = new Gson().fromJson(jsonObject.get("results"), TVShow[].class);
 
-        for (Movie movie : movieArray)
-            fixImageURL(movie);
-        return movieArray;
+        for (TVShow tvShows : tvShowsArray)
+            fixImageURL(tvShows);
+        return tvShowsArray;
     }
 
     @Override
-    protected void onPostExecute(Movie[] movies) {
-        super.onPostExecute(movies);
-        Log.d("DiscoverMoviesAPI", Arrays.toString(movies));
+    protected void onPostExecute(TVShow[] tvShows) {
+        super.onPostExecute(tvShows);
+        Log.d("DiscoverTVShowsAPI", Arrays.toString(tvShows));
     }
 }
