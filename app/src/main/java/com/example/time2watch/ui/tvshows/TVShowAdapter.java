@@ -42,11 +42,7 @@ public class TVShowAdapter extends RecyclerView.Adapter<TVShowAdapter.TVShowView
         holder.vote_average.setText(this.context.getString(R.string.vote_average, tvShow.getVote_average()));
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, TVShowDetailActivity.class);
-            intent.putExtra("poster_path", tvShow.getPoster_path());
-            intent.putExtra("name", tvShow.getName());
-            intent.putExtra("air_date", tvShow.getFirst_air_date());
-            intent.putExtra("vote_average", tvShow.getVote_average());
-            intent.putExtra("overview", tvShow.getOverview());
+            intent.putExtra("id", Integer.valueOf(tvShow.getId()));
             context.startActivity(intent);
         });
     }
