@@ -18,4 +18,16 @@
         android:label="@string/menu_tvshows"
         tools:layout="@layout/fragment_tvshows" />
 
+    <fragment
+        android:id="@+id/action_filters"
+        android:name="com.example.time2watch.ui.filters.FiltersFragment"
+        android:label="@string/action_filters"
+        tools:layout="@layout/fragment_filters" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.time2watch.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+
 </navigation>
