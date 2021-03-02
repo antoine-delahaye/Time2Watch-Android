@@ -11,6 +11,9 @@
         <item
             android:id="@+id/nav_tvshows"
             android:title="@string/menu_tvshows" />
+        <item
+            android:id="@+id/nav_about"
+            android:title="@string/menu_about" />
     </group>
 
 </menu>

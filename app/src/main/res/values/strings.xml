@@ -10,8 +10,12 @@
     <string name="action_filters">Filters</string>
     <string name="menu_movies">Movies</string>
     <string name="menu_tvshows">TV shows</string>
-    <string name="trending_movies_period">Trending movies of the...</string>
-    <string name="trending_tvshows_period">Trending TV shows of the...</string>
+    <string name="trending_movies_period">Trending movies of the…</string>
+    <string name="trending_tvshows_period">Trending TV shows of the…</string>
     <string name="week_period">week</string>
     <string name="day_period">day</string>
+    <string name="about_text">This app was created by Florian Savouré and Antoine Delahaye in connection with the IT department of University of Orléans.</string>
+    <string name="florian_mail" translatable="false">florian.savoure@etu.univ-orleans.fr</string>
+    <string name="antoine_mail" translatable="false">antoine.delahaye@etu.univ-orleans.fr</string>
+    <string name="menu_about">About</string>
 </resources>

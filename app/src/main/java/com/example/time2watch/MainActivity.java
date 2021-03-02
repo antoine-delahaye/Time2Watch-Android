@@ -4,15 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import com.google.android.material.navigation.NavigationView;
-
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar(findViewById(R.id.toolbar));
-        this.appBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_movies, R.id.nav_tvshows).setDrawerLayout(findViewById(R.id.drawer_layout)).build();
+        this.appBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_movies, R.id.nav_tvshows, R.id.nav_about).setDrawerLayout(findViewById(R.id.drawer_layout)).build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, this.appBarConfiguration);
         NavigationUI.setupWithNavController((NavigationView) findViewById(R.id.nav_view), navController);
@@ -52,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.nav_host_fragment), this.appBarConfiguration) || super.onSupportNavigateUp();
     }
 
-    public boolean filtersActivity(MenuItem item) {
+    public void filtersActivity(MenuItem item) {
         startActivity(new Intent(this, FiltersActivity.class));
-        return true;
     }
+
 }

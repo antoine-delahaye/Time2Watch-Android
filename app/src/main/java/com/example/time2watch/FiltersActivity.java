@@ -1,11 +1,11 @@
 package com.example.time2watch;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.time2watch.api.TrendingMoviesAPI;
 import com.example.time2watch.api.TrendingTVShowsAPI;
@@ -16,6 +16,9 @@ public class FiltersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filters);
+        if (MainActivity.tvShowsRecyclerView == null) {
+            findViewById(R.id.tvshows_period).setVisibility(View.INVISIBLE);
+        }
         if (MainActivity.rbMovies) {
             ((RadioButton) findViewById(R.id.movies_radio_button_day)).setChecked(true);
         }
