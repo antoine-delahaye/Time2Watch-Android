@@ -5,18 +5,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RadioButton;
 
-import com.example.time2watch.api.TrendingMoviesAPI;
-import com.example.time2watch.api.TrendingTVShowsAPI;
-import com.google.android.material.navigation.NavigationView;
-
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
     public final static String DAY = "day";
 
-    private boolean rbMovies = false;
+    public static boolean rbMovies = false;
 
-    private boolean rbTVShows = false;
+    public static boolean rbTVShows = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,39 +53,8 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.nav_host_fragment), this.appBarConfiguration) || super.onSupportNavigateUp();
     }
 
-    public void onMoviesRadioButtonClicked(View view) {
-        boolean checked = ((RadioButton) view).isChecked();
-        switch (view.getId()) {
-            case R.id.movies_radio_button_week:
-                if (checked) {
-                    this.rbMovies = false;
-                    new TrendingMoviesAPI().execute(WEEK);
-                    break;
-                }
-            case R.id.movies_radio_button_day:
-                if (checked) {
-                    this.rbMovies = true;
-                    new TrendingMoviesAPI().execute(DAY);
-                    break;
-                }
-        }
+    public void filtersActivity(MenuItem item) {
+        startActivity(new Intent(this, FiltersActivity.class));
     }
 
-    public void onTVShowsRadioButtonClicked(View view) {
-        boolean checked = ((RadioButton) view).isChecked();
-        switch (view.getId()) {
-            case R.id.tvshows_radio_button_week:
-                if (checked) {
-                    this.rbTVShows = false;
-                    new TrendingTVShowsAPI().execute(WEEK);
-                    break;
-                }
-            case R.id.tvshows_radio_button_day:
-                if (checked) {
-                    this.rbTVShows = true;
-                    new TrendingTVShowsAPI().execute(DAY);
-                    break;
-                }
-        }
-    }
 }
