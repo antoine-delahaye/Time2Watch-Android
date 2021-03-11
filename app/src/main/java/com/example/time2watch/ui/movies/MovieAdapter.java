@@ -41,7 +41,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         holder.vote_average.setText(this.context.getString(R.string.vote_average, movie.getVote_average()));
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, MovieDetailActivity.class);
-            intent.putExtra("id", Integer.valueOf(movie.getId()));
+            intent.putExtra("id", movie.getId());
             context.startActivity(intent);
         });
     }

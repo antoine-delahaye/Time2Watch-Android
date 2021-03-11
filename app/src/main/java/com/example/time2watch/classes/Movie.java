@@ -13,7 +13,7 @@ public class Movie {
     private String budget;
     private Genre[] genres;
     private String homepage;
-    private String id;
+    private int id;
     private String imdb_id;
     private String original_language;
     private String original_title;
@@ -35,7 +35,7 @@ public class Movie {
 
     public Movie() { }
 
-    public Movie(boolean adult, String backdrop_path, String budget, Genre[] genres, String homepage, String id, String imdb_id, String original_language, String original_title, String overview, String popularity, String poster_path, ProductionCompany[] production_companies, ProductionCountry[] production_countries, String release_date, String revenue, String runtime, SpokenLanguage[] spoken_languages, String status, String tagline, String title, boolean video, String vote_average, String vote_count) {
+    public Movie(boolean adult, String backdrop_path, String budget, Genre[] genres, String homepage, int id, String imdb_id, String original_language, String original_title, String overview, String popularity, String poster_path, ProductionCompany[] production_companies, ProductionCountry[] production_countries, String release_date, String revenue, String runtime, SpokenLanguage[] spoken_languages, String status, String tagline, String title, boolean video, String vote_average, String vote_count) {
         this.adult = adult;
         this.backdrop_path = backdrop_path;
         this.budget = budget;
@@ -102,11 +102,11 @@ public class Movie {
         this.homepage = homepage;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
