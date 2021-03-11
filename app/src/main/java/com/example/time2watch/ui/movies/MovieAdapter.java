@@ -12,16 +12,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.time2watch.R;
-import com.example.time2watch.classes.TrendingMovie;
+import com.example.time2watch.classes.Movie;
 import com.squareup.picasso.Picasso;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    private final TrendingMovie[] movies;
+    private final Movie[] movies;
 
     private Context context;
 
-    public MovieAdapter(TrendingMovie[] movies) {
+    public MovieAdapter(Movie[] movies) {
         this.movies = movies;
     }
 
@@ -34,7 +34,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(MovieAdapter.MovieViewHolder holder, int position) {
-        TrendingMovie movie = this.movies[position];
+        Movie movie = this.movies[position];
         Picasso.get().load(movie.getPoster_path()).into(holder.poster);
         holder.title.setText(movie.getTitle());
         holder.release_date.setText(this.context.getString(R.string.release_date, movie.getRelease_date()));
