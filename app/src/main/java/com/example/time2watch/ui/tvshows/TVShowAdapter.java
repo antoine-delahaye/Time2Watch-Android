@@ -25,7 +25,6 @@ public class TVShowAdapter extends RecyclerView.Adapter<TVShowAdapter.TVShowView
         this.tvShows = tvShows;
     }
 
-
     @NonNull
     @Override
     public TVShowAdapter.TVShowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -71,4 +70,5 @@ public class TVShowAdapter extends RecyclerView.Adapter<TVShowAdapter.TVShowView
         }
 
     }
+
 }

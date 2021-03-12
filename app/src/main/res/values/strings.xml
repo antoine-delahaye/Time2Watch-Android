@@ -15,7 +15,8 @@
     <string name="week_period">week</string>
     <string name="day_period">day</string>
     <string name="about_text">This app was created by Florian Savouré and Antoine Delahaye in connection with the IT department of University of Orléans.</string>
-    <string name="florian_mail" translatable="false">florian.savoure@etu.univ-orleans.fr</string>
-    <string name="antoine_mail" translatable="false">antoine.delahaye@etu.univ-orleans.fr</string>
+    <string name="florian_mail" translatable="false">florian.savoure2@gmail.com</string>
+    <string name="antoine_mail" translatable="false">antoine.delahaye24.01@gmail.com</string>
     <string name="menu_about">About</string>
+    <string name="menu_search">Search</string>
 </resources>
