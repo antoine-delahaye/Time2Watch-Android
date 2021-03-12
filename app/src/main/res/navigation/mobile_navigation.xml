@@ -19,6 +19,12 @@
         tools:layout="@layout/fragment_tvshows" />
 
     <fragment
+        android:id="@+id/nav_search"
+        android:name="com.example.time2watch.ui.search.SearchFragment"
+        android:label="@string/menu_search"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
         android:id="@+id/nav_about"
         android:name="com.example.time2watch.ui.about.AboutFragment"
         android:label="@string/menu_about"

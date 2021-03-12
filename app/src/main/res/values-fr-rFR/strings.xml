@@ -17,4 +17,5 @@
     <string name="day_period">du jour</string>
     <string name="about_text">Cette application a été créée par Florian Savouré et Antoine Delahaye en lien avec le département informatique de l\'Université d\'Orléans.</string>
     <string name="menu_about">À propos</string>
+    <string name="menu_search">Rechercher</string>
 </resources>
