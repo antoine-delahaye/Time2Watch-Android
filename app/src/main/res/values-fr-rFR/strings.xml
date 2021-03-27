@@ -17,4 +17,14 @@
     <string name="day_period">du jour</string>
     <string name="about_text">Cette application a été créée par Florian Savouré et Antoine Delahaye en lien avec le département informatique de l\'Université d\'Orléans.</string>
     <string name="menu_about">À propos</string>
+    <string name="created_by">"Créer par : "</string>
+    <string name="number_of_episodes">Nombre d\'épisodes : %1$s</string>
+    <string name="number_of_seasons">Nombre de saisons : %1$s</string>
+    <string name="budget">"Budget : "</string>
+    <string name="unknown">Inconnu</string>
+    <string name="genres">Genres :</string>
+    <string name="production_compagnies">Entreprises de production :</string>
+    <string name="original_language">Langue originale : %1$s</string>
+    <string name="original_title">Titre original : %1$s</string>
+    <string name="first_air_date">Nombre d\'épisodes : %1$s</string>
 </resources>

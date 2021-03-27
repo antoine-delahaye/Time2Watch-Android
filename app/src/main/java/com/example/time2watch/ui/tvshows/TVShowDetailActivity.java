@@ -18,5 +18,4 @@ public class TVShowDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tvshow_detail);
         new TVShowAPI(this).execute(getIntent().getExtras().getInt("id"));
     }
-
 }

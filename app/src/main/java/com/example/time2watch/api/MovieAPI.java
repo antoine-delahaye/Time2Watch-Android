@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import com.example.time2watch.R;
 import com.example.time2watch.classes.Movie;
+import com.example.time2watch.classes.subclasses.CreatedBy;
+import com.example.time2watch.classes.subclasses.Genre;
+import com.example.time2watch.classes.subclasses.ProductionCompany;
 import com.example.time2watch.ui.movies.MovieDetailActivity;
 import com.example.time2watch.BuildConfig;
 import com.google.gson.Gson;
@@ -56,6 +59,44 @@ public class MovieAPI extends AsyncTask<Integer, Void, Movie> {
         textView.setText(this.movieDetailActivity.getString(R.string.vote_average, movie.getVote_average()));
         textView = this.movieDetailActivity.findViewById(R.id.movie_detail_overview);
         textView.setText(this.movieDetailActivity.getString(R.string.overview, movie.getOverview()));
-        Log.d("MovieAPI", movie.toString());
+        textView = this.movieDetailActivity.findViewById(R.id.movie_detail_original_language);
+        textView.setText(this.movieDetailActivity.getString(R.string.original_language, movie.getOriginal_language()));
+        textView = this.movieDetailActivity.findViewById(R.id.movie_detail_original_title);
+        textView.setText(this.movieDetailActivity.getString(R.string.original_title, movie.getOriginal_title()));
+
+        // TODO faire pareil que TVShows
+
+        // Genres
+        textView = this.movieDetailActivity.findViewById(R.id.movie_detail_genres);
+        StringBuilder finalString = new StringBuilder(this.movieDetailActivity.getString(R.string.genres));
+        for (Genre genre : movie.getGenres()) {
+            finalString.append("\n - ").append(genre.getName());
+        }
+        textView.setText(finalString);
+
+        // Budget
+        textView = this.movieDetailActivity.findViewById(R.id.movie_detail_budget);
+        StringBuilder budgetString = new StringBuilder(this.movieDetailActivity.getString(R.string.budget));
+        if (movie.getBudget().equals("0")) {
+            budgetString.append(this.movieDetailActivity.getString(R.string.unknown));
+        }
+        else {
+            budgetString.append(movie.getBudget());
+            budgetString.append(" $");
+        }
+        textView.setText(budgetString);
+
+        // Production compagnies
+        textView = this.movieDetailActivity.findViewById(R.id.movie_detail_production_compagny);
+        StringBuilder productionCompagnyString = new StringBuilder(this.movieDetailActivity.getString(R.string.production_compagnies));
+        if (movie.getProduction_companies().length == 0) {
+            productionCompagnyString.append(this.movieDetailActivity.getString(R.string.unknown));
+        }
+        else {
+            for (ProductionCompany productionCompany : movie.getProduction_companies()) {
+                productionCompagnyString.append("\n - ").append(productionCompany.getName());
+            }
+        }
+        textView.setText(productionCompagnyString);
     }
 }

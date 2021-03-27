@@ -8,10 +8,14 @@ import android.widget.TextView;
 import com.example.time2watch.R;
 import com.example.time2watch.BuildConfig;
 import com.example.time2watch.classes.TVShow;
+import com.example.time2watch.classes.subclasses.CreatedBy;
+import com.example.time2watch.classes.subclasses.Genre;
 import com.example.time2watch.ui.tvshows.TVShowDetailActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
 
 import static com.example.time2watch.utils.Utils.fixImageURL;
 import static com.example.time2watch.utils.Utils.getJSON;
@@ -57,6 +61,33 @@ public class TVShowAPI extends AsyncTask<Integer, Void, TVShow> {
         textView.setText(this.tvShowDetailActivity.getString(R.string.vote_average, tvShows.getVote_average()));
         textView = this.tvShowDetailActivity.findViewById(R.id.tvshow_detail_overview);
         textView.setText(this.tvShowDetailActivity.getString(R.string.overview, tvShows.getOverview()));
-        Log.d("TVShowAPI", tvShows.toString());
+        textView = this.tvShowDetailActivity.findViewById(R.id.tvshow_detail_number_of_seasons);
+        textView.setText(this.tvShowDetailActivity.getString(R.string.number_of_seasons, tvShows.getNumber_of_seasons()));
+        textView = this.tvShowDetailActivity.findViewById(R.id.tvshow_detail_number_of_episodes);
+        textView.setText(this.tvShowDetailActivity.getString(R.string.number_of_episodes, tvShows.getNumber_of_episodes()));
+        textView = this.tvShowDetailActivity.findViewById(R.id.tvshow_detail_original_name);
+        textView.setText(this.tvShowDetailActivity.getString(R.string.original_title, tvShows.getOriginal_name()));
+
+        textView = this.tvShowDetailActivity.findViewById(R.id.tvshow_detail_created_by);
+        StringBuilder finalString = new StringBuilder(this.tvShowDetailActivity.getString(R.string.created_by));
+        if (tvShows.getCreated_by().length == 0) {
+            finalString.append(R.string.unknown);
+            textView.setText(finalString);
+        } else if (tvShows.getCreated_by().length == 1) {
+            finalString.append(tvShows.getCreated_by()[0].getName());
+            textView.setText(finalString);
+        } else {
+            for (CreatedBy createdBy : tvShows.getCreated_by()) {
+                finalString.append("\n - ").append(createdBy.getName());
+            }
+            textView.setText(finalString);
+        }
+
+        textView = this.tvShowDetailActivity.findViewById(R.id.tvshow_detail_genres);
+        StringBuilder genreString = new StringBuilder(this.tvShowDetailActivity.getString(R.string.genres));
+        for (Genre genre : tvShows.getGenres()) {
+            genreString.append("\n - ").append(genre.getName());
+        }
+        textView.setText(genreString);
     }
 }
