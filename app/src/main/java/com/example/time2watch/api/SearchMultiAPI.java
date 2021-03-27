@@ -4,8 +4,10 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.time2watch.BuildConfig;
+import com.example.time2watch.MainActivity;
 import com.example.time2watch.classes.Movie;
 import com.example.time2watch.classes.TVShow;
+import com.example.time2watch.ui.search.SearchAdapter;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -19,6 +21,7 @@ import static com.example.time2watch.utils.Utils.fixImageURL;
 import static com.example.time2watch.utils.Utils.getJSON;
 
 public class SearchMultiAPI extends AsyncTask<String, Void, Object[]> {
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -57,6 +60,7 @@ public class SearchMultiAPI extends AsyncTask<String, Void, Object[]> {
     @Override
     protected void onPostExecute(Object[] result) {
         super.onPostExecute(result);
-        Log.d("SearchMulti", Arrays.toString(result));
+        MainActivity.searchRecyclerView.setAdapter(new SearchAdapter(result));
     }
+
 }

@@ -27,4 +27,5 @@
     <string name="original_language">Langue originale : %1$s</string>
     <string name="original_title">Titre original : %1$s</string>
     <string name="first_air_date">Nombre d\'épisodes : %1$s</string>
+    <string name="menu_search">Rechercher</string>
 </resources>
