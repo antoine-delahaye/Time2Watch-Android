@@ -10,7 +10,7 @@ public class Genre{
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String id) {
@@ -18,7 +18,7 @@ public class Genre{
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
 

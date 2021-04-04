@@ -12,19 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.time2watch.R;
-import com.example.time2watch.classes.TrendingTVShow;
+import com.example.time2watch.classes.TVShow;
 import com.squareup.picasso.Picasso;
 
 public class TVShowAdapter extends RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder> {
 
-    private final TrendingTVShow[] tvShows;
+    private final TVShow[] tvShows;
 
     private Context context;
 
-    public TVShowAdapter(TrendingTVShow[] tvShows) {
+    public TVShowAdapter(TVShow[] tvShows) {
         this.tvShows = tvShows;
     }
-
 
     @NonNull
     @Override
@@ -35,14 +34,14 @@ public class TVShowAdapter extends RecyclerView.Adapter<TVShowAdapter.TVShowView
 
     @Override
     public void onBindViewHolder(TVShowAdapter.TVShowViewHolder holder, int position) {
-        TrendingTVShow tvShow = this.tvShows[position];
+        TVShow tvShow = this.tvShows[position];
         Picasso.get().load(tvShow.getPoster_path()).into(holder.poster);
         holder.name.setText(tvShow.getName());
         holder.air_date.setText(this.context.getString(R.string.release_date, tvShow.getFirst_air_date()));
         holder.vote_average.setText(this.context.getString(R.string.vote_average, tvShow.getVote_average()));
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, TVShowDetailActivity.class);
-            intent.putExtra("id", Integer.valueOf(tvShow.getId()));
+            intent.putExtra("id", tvShow.getId());
             context.startActivity(intent);
         });
     }
@@ -71,4 +70,5 @@ public class TVShowAdapter extends RecyclerView.Adapter<TVShowAdapter.TVShowView
         }
 
     }
+
 }

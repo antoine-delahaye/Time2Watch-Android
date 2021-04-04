@@ -19,7 +19,7 @@ public class TVShow {
     private String first_air_date;
     private Genre[] genres;
     private String homepage;
-    private String id;
+    private int id;
     private boolean in_production;
     private String[] languages;
     private String last_air_date;
@@ -47,7 +47,7 @@ public class TVShow {
 
     public TVShow() { }
 
-    public TVShow(String backdrop_path, CreatedBy[] created_by, String[] episode_run_time, String first_air_date, Genre[] genres, String homepage, String id, boolean in_production, String[] languages, String last_air_date, LastEpisodeToAir last_episode_to_air, String name, NextEpisodeToAir next_episode_to_air, Network[] networks, String number_of_episodes, String number_of_seasons, String[] origin_country, String original_language, String original_name, String overview, String popularity, String poster_path, ProductionCompany[] production_companies, ProductionCountry[] production_countries, Season[] seasons, SpokenLanguage[] spoken_languages, String status, String tagline, String type, String vote_average, String vote_count) {
+    public TVShow(String backdrop_path, CreatedBy[] created_by, String[] episode_run_time, String first_air_date, Genre[] genres, String homepage, int id, boolean in_production, String[] languages, String last_air_date, LastEpisodeToAir last_episode_to_air, String name, NextEpisodeToAir next_episode_to_air, Network[] networks, String number_of_episodes, String number_of_seasons, String[] origin_country, String original_language, String original_name, String overview, String popularity, String poster_path, ProductionCompany[] production_companies, ProductionCountry[] production_countries, Season[] seasons, SpokenLanguage[] spoken_languages, String status, String tagline, String type, String vote_average, String vote_count) {
         this.backdrop_path = backdrop_path;
         this.created_by = created_by;
         this.episode_run_time = episode_run_time;
@@ -129,11 +129,11 @@ public class TVShow {
         this.homepage = homepage;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

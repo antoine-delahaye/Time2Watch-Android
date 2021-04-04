@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -22,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     public static RecyclerView moviesRecyclerView;
 
     public static RecyclerView tvShowsRecyclerView;
+
+    public static RecyclerView searchRecyclerView;
 
     public final static String WEEK = "week";
 
